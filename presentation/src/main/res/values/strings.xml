@@ -1,0 +1,473 @@
+<resources>
+    <string name="app_name">DaOnGil</string>
+    <string name="toolbar_app_name">다온, 길</string>
+    <string name="add_schedule"><u>일정 등록하러가기 ＞</u></string>
+    <string name="tourist_spot">여행</string>
+    <string name="restaurant">음식점</string>
+    <string name="lodgment">숙박</string>
+    <string name="watching_map">지도보기</string>
+    <string name="watching_list">목록보기</string>
+
+    <string name="picked_dates">%s - %s</string>
+    <string name="bookmarked_places">북마크한 여행지</string>
+    <string name="hint_search">검색어를 입력해주세요</string>
+    <string name="result_empty">검색 결과가 없어요.\n다른 검색어를 입력해주세요.</string>
+    <string name="bookmarked_places_empty">북마크한 여행지가 없어요.\n검색어를 입력해주세요.</string>
+    <string name="add_new_schedule">새로운 일정</string>
+    <string name="modify_schedule">일정 수정</string>
+    <string name="search_places_to_add">여행지 검색</string>
+    <string name="confirm">확인</string>
+    <string name="save">저장하기</string>
+    <string name="block_report">신고</string>
+    <string name="text_guide_info">새로운 여행 정보를\n입력해주세요</string>
+    <string name="text_guide_modify_info">여행 정보를\n입력해주세요</string>
+    <string name="text_guide_places">날짜마다 방문할\n여행지를 추가해주세요</string>
+    <string name="text_guide_confirm">입력하신 여행정보를\n확인해보세요</string>
+    <string name="text_number_of_result">검색결과 %s건</string>
+    <string name="text_selected_title">%s&#160;</string>
+    <string name="text_selected_period">| %s</string>
+    <string name="inform_add_places">여행지를 추가해주세요</string>
+
+    <string name="text_area">지역선택</string>
+    <string name="text_sigungu">시군구선택</string>
+    <string name="text_parking">주차장</string>
+    <string name="text_public_transport">대중교통</string>
+    <string name="text_route">접근로</string>
+    <string name="text_ticket_office">매표소</string>
+    <string name="text_promotion">홍보물</string>
+    <string name="text_wheelchair">휠체어 대여</string>
+    <string name="text_exit">출입통로</string>
+    <string name="text_elevator">엘리베이터</string>
+    <string name="text_restroom">화장실</string>
+    <string name="text_auditorium">휠체어석</string>
+    <string name="text_room">객실</string>
+    <string name="text_braile_block">점자블럭</string>
+    <string name="text_help_dog">보조견동반</string>
+    <string name="text_guide">안내요원</string>
+    <string name="text_audio_guide">오디오 가이드</string>
+    <string name="text_big_print">큰활자 홍보물</string>
+    <string name="text_braile_promotion">점자 홍보물/점자 표지판</string>
+    <string name="guide_system">유도 안내 설비</string>
+    <string name="text_sign_guide">수화 안내</string>
+    <string name="text_video_guide">자막/비디오가이드</string>
+    <string name="text_stroller">유모차</string>
+    <string name="text_lactation">수유실</string>
+    <string name="text_baby_spare_chair">유아용의자</string>
+    <string name="text_reset">초기화</string>
+    <string name="text_apply">적용하기</string>
+    <string name="text_all">전체</string>
+    <string name="text_lend">이동 보조도구 대여</string>
+    <string name="text_physical_disability">지체장애</string>
+    <string name="text_visual_impairment">시각장애</string>
+    <string name="text_hearing_impairment">청각장애</string>
+    <string name="text_infant_family">영유아동반</string>
+    <string name="text_elderly_person">고령자</string>
+
+    <string-array name="blood_type">
+        <item>A형Rh+</item>
+        <item>A형Rh-</item>
+        <item>B형Rh+</item>
+        <item>B형Rh-</item>
+        <item>O형Rh+</item>
+        <item>O형Rh-</item>
+        <item>AB형Rh+</item>
+        <item>AB형Rh-</item>
+    </string-array>
+
+    <string name="text_emergency_main">내 주변 응급 지원 찾기</string>
+    <string name="text_emergency_second">어떤 정보를 찾으시나요?</string>
+    <string name="text_emergency_aed">응급실 / 제세동기 찾기</string>
+    <string name="text_emergency_aed_first">여행 중 갑자기 아프다면,</string>
+    <string name="text_emergency_aed_second">내 근처 병원을 빠르게 방문해보세요</string>
+    <string name="text_emergency_pharmacy">약국 찾기</string>
+    <string name="text_emergency_pharmacy_first">필요한 상비약을</string>
+    <string name="text_emergency_pharmacy_second">구입해 보세요</string>
+
+    <string name="text_my_schedule">내 일정</string>
+    <string name="text_public_schedule">공개 일정</string>
+    <string name="text_schedule_info_writer_not_leave_title">여행이 종료되지 않았습니다.</string>
+    <string name="text_schedule_info_writer_not_leave_content">종료 후 후기를 남겨주세요.</string>
+    <string name="text_schedule_info_not_leave_title">여행이 종료되지 않았습니다.</string>
+    <string name="text_schedule_info_not_leave_content">종료 후 후기가 작성될 예정입니다.</string>
+    <string name="text_schedule_info_leave_title">작성된 후기가 없습니다.</string>
+    <string name="text_schedule_info_leave_content">후기가 작성될 때까지 기다려주세요.</string>
+    <string name="text_leave_schedule_review"><u>후기/만족도 남기기 ＞</u></string>
+    <string name="text_schedule_detail_review">여행 후기</string>
+    <string name="text_schedule_review">후기</string>
+    <string name="text_schedule_satisfaction">일정 만족도</string>
+    <string name="accessibility_text_schedule_satisfaction_default">일정 만족도를 평가해주세요. 현재 5개의 별중 0개 표시됨</string>
+    <string name="accessibility_text_schedule_satisfaction">일정 만족도를 평가해주세요. 현재 5개의 별중 %s개 표시됨</string>
+    <string name="text_schedule_report_review">신고하기</string>
+    <string name="text_schedule_weather">예상 날씨</string>
+    <string name="text_schedule_full">일정 보기</string>
+    <string name="text_schedule_period">%s - %s</string>
+    <string name="text_schedule_remain_date">여행 %s일 전</string>
+    <string name="text_schedule_days">일차</string>
+    <string name="text_schedule_place_empty">해당 일자에 추가된 여행지가 없습니다</string>
+    <string name="text_view_detail">상세보기</string>
+    <string name="text_manage_review">후기 관리</string>
+    <string name="text_schedule_public">공개</string>
+    <string name="text_schedule_private">비공개</string>
+    <string name="text_schedule_menu">메뉴</string>
+    <string name="text_schedule_bookmark">북마크</string>
+    <string name="text_schedule_manage">여행 일정</string>
+    <string name="text_schedule_edit">수정하기</string>
+    <string name="text_schedule_delete">삭제하기</string>
+    <string name="accessibility_text_schedule_delete">일정에서 %s %s 삭제하기</string>
+    <string name="accessibility_text_schedule_add">일정에 %s %s 추가하기</string>
+    <string name="accessibility_text_place">%s %s</string>
+    <string name="text_schedule_make_public">일정 공개</string>
+    <string name="text_schedule_make_private">일정 비공개</string>
+    <string name="text_schedule_review_manage">여행 일정 후기</string>
+    <string name="text_schedule_changed_to_private">여행 일정이 비공개되었습니다.</string>
+    <string name="text_schedule_changed_to_public">여행 일정이 공개되었습니다.</string>
+    <string name="text_schedule_review_deleted">여행 일정 후기가 삭제되었습니다.</string>
+    <string name="text_schedule_deleted">여행 일정 후기가 삭제되었습니다.</string>
+    <string name="text_report_reason">신고 사유</string>
+    <string name="text_report_commercial_promotion">영리목적/홍보성</string>
+    <string name="text_report_copyright_infringement">저작권 침해</string>
+    <string name="text_report_obscenity">음란성/선정성</string>
+    <string name="text_report_verbal_abuse">욕설/인신공격</string>
+    <string name="text_report_privacy_exposure">개인정보 노출</string>
+    <string name="text_report_other">기타</string>
+    <string name="text_report_cancel">취소</string>
+    <string name="text_report_submitted">신고가 접수되었습니다.</string>
+
+    <string name="text_is_schedule_public">공개 범주</string>
+    <string name="hint_review_content">후기를 입력해주세요</string>
+    <string name="text_add_schedule_photo">일정 후기 사진 추가 버튼</string>
+
+    <string name="text_schedule_upcoming">다가오는 일정</string>
+    <string name="text_schedule_elapsed">다녀온 일정</string>
+    <string name="text_view_more">더보기</string>
+    <string name="text_browse_public_schedule">공개 일정 둘러보기</string>
+
+    <string name="title_emergency_area_dialog">다른 지역 정보가 궁금하신가요?</string>
+    <string name="subtitle_emergency_area_dialog">내가 여행하고 싶은 지역으로\n 시도와 시군구 모두 선택해주세요</string>
+    <string name="content_emergency_area_dialog">시도와 시군구 모두 선택해주세요</string>
+    <string name="text_relation">관계</string>
+    <string name="text_birth">생년월일</string>
+    <string name="text_plz_enter_name">이름을 입력해주세요</string>
+    <string name="text_plz_enter_nickname">닉네임을 입력해주세요</string>
+    <string name="text_plz_enter_birth">생년월일을 입력해주세요</string>
+    <string name="text_blood_type">혈액형</string>
+    <string name="text_plz_enter_blood_type">혈액형을 입력해주세요</string>
+    <string name="text_disease">의학적 질환</string>
+    <string name="text_plz_enter_disease">보유하신 질환을 입력해주세요</string>
+    <string name="text_allergy">알레르기 및 부작용</string>
+    <string name="text_plz_enter_allergy">보유하신 알레르기를 입력해주세요</string>
+    <string name="text_medicine">투여약</string>
+    <string name="text_plz_enter_medicine">투여중인 약을 입력해주세요</string>
+    <string name="text_emergency_contact">긴급 연락처</string>
+    <string name="text_plz_enter_relation">상대방과의 관계를 입력해주세요</string>
+    <string name="text_plz_enter_emergency_contact">비상 연락처를 입력해주세요</string>
+    <string name="text_plz_enter_phone">전화번호를 입력해주세요</string>
+    <string name="text_plz_enter_collect_phone_for_announce">전화번호는 숫자만입력해주세요.</string>
+    <string name="text_plz_enter_collect_phone_type">올바른 전화번호 형식을 입력해주세요.</string>
+    <string name="text_plz_enter_collect_birth_type">올바른 생년월일 형식을 입력해주세요.</string>
+    <string name="text_birth_ex">예) 19700101</string>
+    <string name="text_contact_ex">예) 01012345678</string>
+
+    <string name="text_modify_schedule_review">여행 후기 수정하기</string>
+    <string name="text_write_schedule_review">여행 후기 남기기</string>
+    <string name="text_write_schedule_review_description">일정 %s의 여행 후기 남기기</string>
+    <string name="text_schedule_review_photo">여행 사진</string>
+    <string name="text_save_schedule_review">저장하기</string>
+
+    <string name="text_schedule_form_name">여행 제목</string>
+    <string name="hint_schedule_form_name">15자 이내로 입력해주세요</string>
+    <string name="text_schedule_form_period">여행 기간</string>
+    <string name="hint_schedule_form_period">여행 기간을 설정해주세요</string>
+    <string name="text_schedule_form_next">다음으로</string>
+    <string name="text_schedule_form_add_place">새로운 장소 추가</string>
+    <string name="accessibility_text_schedule_form_add_place">%s요일 일정에 새로운 장소 추가</string>
+    <string name="accessibility_text_add_bookmarked_place">%s 일정에 추가하기</string>
+
+    <string name="tab_text_place">장소</string>
+    <string name="tab_text_plan">일정</string>
+
+    <string name="text_place_bookmark">북마크한 장소가 없습니다.\n가고 싶은 장소를 추가해보세요!</string>
+    <string name="text_plan_bookmark">북마크한 일정이 없습니다.\n관심 있는 일정을 추가해보세요!</string>
+
+    <string name="text_NameOrLogin">아직 정보가 없어요!</string>
+    <string name="text_myInfo_Review">로그인을 진행해주세요</string>
+
+    <string name="text_my_review">작성한 후기가 없습니다.\n다녀온 여행지의 후기를 작성해보세요!</string>
+
+    <string name="text_report_title">신고하기</string>
+    <string name="text_report_subtitle">신고 사유 (필수)</string>
+    <string name="text_report_reason_pirate">도용</string>
+    <string name="text_report_reason_curse">비방 및 욕설</string>
+    <string name="text_report_reason_promote">홍보/상업성</string>
+    <string name="text_report_reason_violence">증오심 표현/노골적인 폭력</string>
+    <string name="text_report_reason_wrong">잘못된 정보</string>
+    <string name="text_report_reason_etc">기타</string>
+    <string name="text_report_detail_reason_subtitle">상세한 신고 사유</string>
+    <string name="text_report_detail_reason_info">기타 사유 선택 시, 상세한 신고 사유는 필수입니다.</string>
+    <string name="hint_report_reason_etc">자세하게 신고 사유를 입력해주시면 신고 내용에 도움이 됩니다.</string>
+    <string name="text_report_notify">※ 신고해주신 내용은 관리자 검토 후 조치가 진행됩니다.</string>
+    <string name="text_report_error_message">신고 내용을 입력해주세요.</string>
+    <string name="text_report_submit">신고 완료</string>
+
+    <string name="text_searbar_hint">여행지를 직접 검색 해보세요!</string>
+    <string name="text_search_guide1">딱 맞는 여행을 찾을 수 있도록</string>
+    <string name="text_category">유형</string>
+    <string name="text_search_guide2">을 선택해 보세요!</string>
+
+    <string name="text_sort_ganada">가나다순</string>
+    <string name="text_sort_recent">최신순</string>
+    <string name="text_sort_popular">인기순</string>
+    <string name="text_recently_search_keyword">최근 검색어</string>
+    <string name="text_delete_all">전체 삭제</string>
+    <string name="text_no_recently_search_keyword">최근 검색어 내역이 없습니다.</string>
+
+    <string name="text_sign_out">회원탈퇴</string>
+    <string name="text_logout">로그아웃</string>
+    <string name="text_logout_to_device">해당 기기에서 로그아웃 됩니다.</string>">
+    <string name="text_place_review">나의 여행지 후기</string>
+    <string name="text_bookmark">북마크</string>
+    <string name="text_interest_type">관심 유형</string>
+    <string name="text_review">리뷰</string>
+    <string name="text_sir">님</string>
+    <string name="text_modify_my_profile">내 정보 수정하기</string>
+    <string name="text_modify_interest_type">관심유형 변경하기</string>
+    <string name="text_modify_bookmark">북마크 목록 보기</string>
+    <string name="text_modify_place_review">나의 여행지 후기 보기</string>
+    <string name="text_logout_button">로그아웃 하기</string>
+    <string name="text_modify_sign_out">회원 탈퇴</string>
+    <string name="text_script_read_all_text">
+        화면에 대한 설명을 듣고 싶으시다면 화면 최상단 오른쪽에 위치한 화면정보읽기버튼을 눌러주세요
+    </string>
+    <string name="text_script_my_info">
+        화면 상단에 개인정보영역이 있습니다.
+        모든내용읽기버튼 아래에 개인정보수정버튼이 있습니다.
+        개인정보수정버튼을 클릭하면 개인정보수정화면으로 이동해드릴게요.
+        화면중간에 나의응급정보영역이 있으며 오른쪽에 나의응급정보수정 버튼이있습니다.
+        나의응급정보수정버튼을 클릭하면 나의응급정보수정화면으로 이동해드릴게요.
+        현재저장된 개인정보를 읽어드리길원하시면 나의정보읽기버튼을 클릭해주세요.
+        나의정보읽기버튼은 화면최상단오른쪽 화면정보읽기버튼 왼쪽에있습니다.
+    </string>
+    <string name="text_script_my_info_modify">
+        이 화면에선 프로필사진과 닉네임 전화번호를 수정할수있어요.
+        화면상단에 프로필사진영역이 있습니다.
+        프로필사진영역오른쪽 끝 하단에 프로필수정버튼이 있습니다.
+        프로필수정버튼을 클릭하면 프로필수정화면으로 이동해드릴게요.
+        하단에 닉네임입력 영역이 있습니다.
+        닉네임입력영역 하단에 전화번호수정역역이 있습니다.
+        전화번호는 숫자만입력해주세요.
+        최하단에 수정완료버튼이 있습니다.
+        수정완료버튼을 클릭하면 수정이완료됩니다.
+    </string>
+    <string name="text_script_for_my_info_main">
+        마이페이지 화면입니다.
+        모든 버튼은 화면오른쪽에 위치해 있습니다.
+        화면최상단기준 아래로 30% 지점에 프로필 영역이 있습니다.
+        왼쪽에는 프로필 이미지가 있고, 오른쪽에는 이름과 가입 정보가 표시됩니다.
+
+        프로필영역오른쪽 끝에 프로필수정버튼이 있습니다.
+        프로필수정버튼을 클릭하면 프로필수정화면으로 이동해드릴게요.
+
+        프로필영역하단에 관심유형영역이 있습니다.
+        관심유형변경버튼을 클릭하면 관심유형변경화면으로 이동해드릴게요.
+
+        관심유형영역하단에 북마크목록보기영역이 있습니다.
+        북마크목록보기버튼을 클릭하면 북마크목록보기화면으로 이동해드릴게요.
+
+        북마크목록보기영역 하단에 나의여행지후기영역이 있습니다.
+        나의여행지후기영역 버튼을 클릭하면 나의여행지후기목록화면으로 이동해드릴게요.
+
+        나의여행지후기영역 하단에 로그아웃영역이 있습니다.
+        로그아웃버튼을 클릭하면 로그아웃을 위한 창을 띄워드릴게요.
+
+        로그아웃영역 하단에 회원탈퇴영역이 있습니다.
+        회원탈퇴버튼을 클릭하면 회원탈퇴화면으로 이동해드릴게요.
+    </string>
+    <string name="text_script_for_modify_my_info_main">
+        나의 응급정보 화면은 생년월일, 혈액형, 의학적질화느 일레르기및부작용, 투여약, 긴급연락처를 수정할수있어요.
+        긴급연락처는 두개까지입력할수 있습니다.
+        최하단에 수정완료버튼이 있습니다.
+        수정완료버튼을 클릭하면 수정이완료됩니다.
+        저장된 내응급정보를 들으시려면 나의응급정보읽기버튼을 클릭해주세요.
+        나의응급정보읽기버튼은 화면최상단오른쪽 화면정보읽기버튼 왼쪽에있습니다.
+    </string>
+
+    <string name="text_logout_guide">
+
+    </string>
+    <string name="text_script_for_no_login_user">
+        마이페이지 화면입니다.
+        로그인한 사용자분들께서만 이용 가능합니다.
+        화면최상단기준 아래로 30% 지점 맨 오른쪽에 위치한 로그인버튼을눌러
+        로그인을 진행해주세요
+    </string>
+    <string name="text_script_this_is_my_info_modify_page">
+        개인정보수정화면입니다.
+    </string>
+    <string name="text_script_this_is_ice_modify_my_ice_info_page">
+        나의응급정보수정화면입니다.
+    </string>
+    <string name="text_script_guide_for_my_info">
+        나의정보화면입니다.
+    </string>
+    <string name="text_this_is_place_search">
+        관광정보 화면입니다.
+    </string>
+    <string name="text_script_guide_for_place_search">
+        화면최상단에 텍스트 검색화면으로 이동하는버튼이있습니다.
+        버튼을 클릭하면 텍스트 검색화면으로 이동해드릴게요.
+        하단엔 여행 음식점 숙박 3개의탭이있습니다.
+        원하는탭을선택하시면 각탭에맞는 여행지를제공해드릴게요
+        하단에 청각장애 지체장애 시각장애 영유아동반 고령자별로
+        관광자검색옵션을선택할 수 있는버튼이 있어요.
+        하단에 지역을선택할 수 있는목록이 있으며
+        지역선택목록 하단에 시군구를 선택할수있는 목록이있어요,
+        검색하신관광지는 가장하단에제공됩니다.
+        화면오른쪽하단에 지도보기버튼이있습니다.
+        지도보기버튼을 클릭하면 지도화면으로 이동해드릴게요.
+    </string>
+    <string name="text_read_all">모든 내용 읽기</string>
+    <string name="text_read_screen_info">화면정보읽기</string>
+    <string name="text_read_my_profile">나의 정보 읽기</string>
+    <string name="text_back_button">뒤로 가기</string>
+    <string name="text_script_move_to_profile_modify_page">개인정보수정</string>
+    <string name="text_script_move_to_ice_modify_page">나의응급정보수정</string>
+    <string name="text_personal_info">개인 정보</string>
+    <string name="text_name">이름</string>
+    <string name="text_phone">전화번호</string>
+    <string name="text_nickname">닉네임</string>
+    <string name="text_my_ice_info">나의 응급 정보</string>
+    <string name="text_modify">수정하기</string>
+    <string name="text_profile_image">프로필 이미지</string>
+    <string name="text_guide_gallery_button">갤러리 열기</string>
+    <string name="text_read_my_ice_info_script">나의응급정보읽기</string>
+    <string name="text_modify_profile_img_unselected">변경할프로필 사진이 선택되지 않았습니다.</string>
+    <string name="text_modify_profile_img_selected">변경할프로필 사진이 선택 되었습니다.</string>
+    <string name="text_select_area">지역 선택</string>
+    <string name="text_nationwide">전국</string>
+    <string name="text_reset_all_option">모든옵션이 초기화되었습니다.</string>
+    <string name="text_select_all_option">모든옵션이 선택되었습니다.</string>
+
+    <string name="text_num_of_images">%d</string>
+    <string name="text_num_of_max_images">/4</string>
+    <string name="text_num_of_total_images">/%d</string>
+    <string name="accessibility_text_photo_add">후기 사진 첨부 버튼. 현재 첨부된 사진 수는 %s장이며, %s장 더 첨부 가능합니다</string>
+    <string name="text_warning_review_content_empty">후기를 작성해 주세요</string>
+
+    <string name="text_my_review_modify_btn">수정</string>
+    <string name="text_my_review_delete_btn">삭제</string>
+    <string name="text_my_review_header">내가 쓴 총 후기 %1$d개</string>
+    <string name="text_my_review_report">관리자에 의해 삭제된 후기입니다.</string>
+
+    <string name="text_schedule_thumbnail_image">일정 대표사진</string>
+    <string name="text_place_thumbnail_image">여행지 대표사진</string>
+    <string name="text_add_place_to_schedule">일정에 여행지 추가</string>
+    <string name="text_no_schedule">아직 등록된 일정이 없어요</string>
+    <string name="text_explore_public_schedule">공개일정 둘러보기</string>
+    <string name="text_add_new_schedule">새 여행 일정 추가하기</string>
+
+    <string name="text_script_guide_onboarding">
+        온보딩 화면입니다.좌우스와이프로 페이지를 넘길수있습니다.
+        스킵하시려면 화면하단건너뛰기버튼을 눌러주세요.</string>
+    <string name="text_skip">건너뛰기</string>
+    <string name="text_hello_plz_login">안녕하세요!\n간편 로그인을 진행해주세요!</string>
+    <string name="text_kakao_login">카카오로그인</string>
+    <string name="text_naver_login">네이버로그인</string>
+    <string name="text_login_button">로그인 버튼</string>
+    <string name="text_script_guide_last_onboarding_page">
+        마지막온보딩화면입니다 화면중간 시작하기버튼을 눌러회원가입없이 이용하실수 있습니다
+        회원가입또는 로그인하시려면 시작하기버튼 하단 로그인/회원가입 진행하기 버튼을눌러주세요.
+    </string>
+    <string name="text_onboarding_first_text1">여행의 모든 문턱을 낮추다</string>
+    <string name="text_onboarding_first_text2">다온길에서 무장애 여행 정보를 확인하세요</string>
+    <string name="text_onboarding_second_text1">안전한 여행의 첫 걸음</string>
+    <string name="text_onboarding_second_text2">언제 어디서든 응급 지원정보를 확인하세요</string>
+    <string name="text_onboarding_third_text1">한곳에서 완성되는 여행</string>
+    <string name="text_onboarding_third_text2">여행 계획부터 후기 공유까지 한번에 관리해요</string>
+    <string name="text_onboarding_fourth_text1">행복이 다가온 여행길, 다온길</string>
+    <string name="text_onboarding_fourth_text2">     모두를 위한 행운 이정표</string>
+    <string name="text_onboarding_fourth_text3">
+         누구든 떠날 자유, 모두가 누릴 행복
+    </string>
+    <string name="text_delete_recently_search_keyword">최근검색어삭제</string>
+    <string name="text_plz_enter_2_more">2글자 이상 입력해주세요.</string>
+
+    <string name="concern_type_nickname">%1$s의 관심 유형</string>
+    <string name="text_network_is_unavailable">서버에 연결할 수 없습니다.</string>
+    <string name="text_plz_check_network">인터넷 연결을 확인해주세요.</string>
+    <string name="text_policy">약관 및 정책</string>
+
+    <string name="text_update_place_bookmark">%1$s 북마크 취소하기</string>
+    <string name="text_update_plan_bookmark">%1$s 일정 북마크 취소하기</string>
+
+    <string name="text_no_concern_type_selected">선택한 관심 유형이 없습니다</string>
+    <string name="text_concern_type_subtitle">관심 유형을 변경하고 싶으신가요?</string>
+    <string name="text_concern_type_modify_move">관심 유형 수정하기</string>
+    <string name="text_concern_type_choose">관심 유형을 선택해주세요.</string>
+    <string name="text_concern_type_modify">수정 완료</string>
+
+    <string name="text_my_review_modify_title">후기 수정하기</string>
+    <string name="text_my_review_modify_rating">후기 별점 수정하기</string>
+    <string name="text_my_review_modify_subtitle_date">방문 날짜</string>
+    <string name="text_my_review_modify_subtitle_review">후기</string>
+    <string name="text_my_review_modify_subtitle_img">사진</string>
+    <string name="text_my_review_modify_submit">수정 완료</string>
+    <string name="text_my_review_modify_hint_date">방문 날짜를 선택해주세요</string>
+    <string name="text_my_review_modify_hint_review">후기를 작성해주세요</string>
+    <string name="text_my_review_modify_img">첨부한 후기 사진</string>
+    <string name="text_my_review_modify_img_delete">후기 사진 삭제</string>
+    <string name="text_my_review_modify_add_img">후기 사진 첨부하기</string>
+
+    <string name="text_my_review_location_name">%1$s의 후기입니다</string>
+    <string name="text_my_review_move_list">해당 후기의 전체 후기 목록으로 이동하기</string>
+    <string name="text_my_review_rating">별점 %1$.1f</string>
+    <string name="text_my_review_img">후기 이미지 두 번 탭하면 이미지 보기 화면으로 이동합니다</string>
+    <string name="text_my_review_modify_move">후기 수정하기</string>
+    <string name="text_my_review_delete">후기 삭제하기</string>
+    <string name="text_common_error">오류가 발생했습니다. 앱 종료 후 다시 시도해주세요.</string>
+    <string name="text_complete">완료</string>
+    <string name="text_retry">다시 시도</string>
+    <string name="plz_select_interest_type">"관심유형을 한개 이상선택해주세요"</string>
+    <string name="plz_retry">서버 호출에 실패했어요. 버튼을 눌러 다시 시도해주세요.</string>
+    <string name="plz_check_network">인터넷 연결을 확인해주세요.</string>
+
+    <string name="can_not_access_network">서버에 연결할 수 없어요 \n 인터넷 연결을 확인해주세요.</string>
+
+    <string name="text_remove_all_recently_search_keyword">검색어 전체 삭제</string>
+    <string name="text_ask_remove_recently_search_keyword">최근 검색어를 모두\n삭제하시겠습니까?</string>
+    <string name="text_remove_keyword">삭제하기</string>
+    <string name="text_no_search_result">검색 결과가 없어요.\n 다른 검색어를 입력해주세요</string>
+
+    <string name="text_member_withdrawal_title">회원 탈퇴</string>
+    <string name="text_member_withdrawal_message">정말 회원을 탈퇴 하시겠습니까?</string>
+    <string name="text_member_withdrawal_confirm">탈퇴 하기</string>
+
+    <!-- General Network Errors -->
+    <string name="network_error_connect_title">서버에 연결할 수 없어요</string>
+    <string name="network_error_connect_message">인터넷 연결을 확인한 후 다시 시도해주세요.</string>
+
+    <string name="network_error_timeout_title">서버 응답 시간이 초과되었어요</string>
+    <string name="network_error_timeout_message">잠시 후 다시 시도해주세요.</string>
+
+    <string name="network_error_unknown_host_title">서버를 찾을 수 없습니다.</string>
+    <string name="network_error_unknown_host_message">인터넷 연결 상태를 확인해주세요.</string>
+
+    <string name="network_error_unknown_title">알 수 없는 오류가 발생했어요</string>
+    <string name="network_error_unknown_message">잠시 후 다시 시도해주세요.</string>
+
+    <!-- HTTP Errors -->
+    <string name="http_error_bad_request_title">인증 오류가 발생했어요</string>
+    <string name="http_error_bad_request_message">요청 내용을 확인하고 다시 시도해주세요.</string>
+
+    <string name="http_error_authentication_title">로그인 문제가 발생했습니다.</string>
+    <string name="http_error_authentication_message">문제가 반복 된다면 다시 로그인해주세요.</string>
+
+    <string name="http_error_authorization_title">서비스 이용 권한에 문제가 발생했습니다.</string>
+    <string name="http_error_authorization_message">해당 서비스에 대한 유저 권한이 없어요.</string>
+
+    <string name="http_error_not_found_title">해당 서비스를 찾을 수 없어요</string>
+    <string name="http_error_not_found_message">요청하신 페이지 또는 정보가 존재하지 않습니다.</string>
+
+    <string name="http_error_server_title">서버에 오류가 발생했어요</string>
+    <string name="http_error_server_message">잠시후 다시 시도해주세요.</string>
+</resources>
+

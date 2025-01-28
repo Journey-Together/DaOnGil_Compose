@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbarIceModify"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:menu="@menu/menu_read_ice_script"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:importantForAccessibility="yes"
+        android:minHeight="?attr/actionBarSize">
+
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="start"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/text_back_button"
+            android:src="@drawable/back_icon" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/pretendard_medium"
+            android:text="나의 응급 정보"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/font_big2" />
+
+    </com.google.android.material.appbar.MaterialToolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/toolbarIceModify"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/margin_big2">
+
+            <TextView
+                android:id="@+id/tv_birth_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_small1"
+                android:fontFamily="@font/pretendard_medium"
+                android:text="@string/text_birth"
+                android:textSize="@dimen/font_big2" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutBirthday"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_basic"
+                app:boxBackgroundColor="@color/text_field_background"
+                app:boxBackgroundMode="outline"
+                app:boxStrokeColor="@color/text_field_background"
+                app:boxStrokeWidth="0dp"
+                app:cursorColor="@color/text_primary"
+                app:endIconMode="clear_text"
+                app:hintEnabled="false">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tv_birth"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/pretendard_medium"
+                    android:hint="@string/text_birth_ex"
+                    android:inputType="number"
+                    android:maxLength="8"
+                    android:textSize="@dimen/font_big3" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/tv_blood_type_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_small1"
+                android:fontFamily="@font/pretendard_medium"
+                android:text="@string/text_blood_type"
+                android:textSize="@dimen/font_big2" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutBloodType"
+                style="@style/Widget.Material3.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_basic"
+                app:boxBackgroundColor="@color/text_field_background"
+                app:boxBackgroundMode="outline"
+                app:boxStrokeColor="@color/text_field_background"
+                app:boxStrokeWidth="0dp"
+                app:endIconTint="@color/text_primary"
+                app:hintEnabled="false">
+
+                <AutoCompleteTextView
+                    android:id="@+id/tv_bloodType"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/pretendard_medium"
+                    android:hint="@string/text_plz_enter_blood_type"
+                    android:inputType="none"
+                    android:paddingTop="@dimen/margin_big3"
+                    android:paddingBottom="@dimen/margin_big2"
+                    android:textSize="@dimen/font_big3"
+                    app:simpleItems="@array/blood_type" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/tv_disease_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_small1"
+                android:fontFamily="@font/pretendard_medium"
+                android:text="@string/text_disease"
+                android:textSize="@dimen/font_big2" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_basic"
+                app:boxBackgroundColor="@color/text_field_background"
+                app:boxBackgroundMode="outline"
+                app:boxStrokeColor="@color/text_field_background"
+                app:boxStrokeWidth="0dp"
+                app:cursorColor="@color/text_primary"
+                app:endIconMode="clear_text"
+                app:hintEnabled="false">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tv_disease"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/pretendard_medium"
+                    android:hint="@string/text_plz_enter_disease"
+                    android:inputType="text"
+                    android:textSize="@dimen/font_big3" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/tv_allergy_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_small1"
+                android:fontFamily="@font/pretendard_medium"
+                android:text="@string/text_allergy"
+                android:textSize="@dimen/font_big2" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_basic"
+                app:boxBackgroundColor="@color/text_field_background"
+                app:boxBackgroundMode="outline"
+                app:boxStrokeColor="@color/text_field_background"
+                app:boxStrokeWidth="0dp"
+                app:cursorColor="@color/text_primary"
+                app:endIconMode="clear_text"
+                app:hintEnabled="false">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tv_allergy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/pretendard_medium"
+                    android:hint="@string/text_plz_enter_allergy"
+                    android:inputType="text"
+                    android:textSize="@dimen/font_big3" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/tv_medicine_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_small1"
+                android:fontFamily="@font/pretendard_medium"
+                android:text="@string/text_medicine"
+                android:textSize="@dimen/font_big2" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_basic"
+                app:boxBackgroundColor="@color/text_field_background"
+                app:boxBackgroundMode="outline"
+                app:boxStrokeColor="@color/text_field_background"
+                app:boxStrokeWidth="0dp"
+                app:cursorColor="@color/text_primary"
+                app:endIconMode="clear_text"
+                app:hintEnabled="false">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tv_medicine"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/pretendard_medium"
+                    android:hint="@string/text_plz_enter_medicine"
+                    android:inputType="text"
+                    android:textSize="@dimen/font_big3" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/tv_emergency_contact_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_small1"
+                android:fontFamily="@font/pretendard_medium"
+                android:text="@string/text_emergency_contact"
+                android:textSize="@dimen/font_big2" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/margin_small2"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/margin_big4"
+                    android:layout_weight="3"
+                    app:boxBackgroundColor="@color/text_field_background"
+                    app:boxBackgroundMode="outline"
+                    app:boxStrokeColor="@color/text_field_background"
+                    app:boxStrokeWidth="0dp"
+                    app:cursorColor="@color/text_primary"
+                    app:hintEnabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tv_relation1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/pretendard_medium"
+                        android:hint="@string/text_relation"
+                        android:inputType="text"
+                        android:textSize="@dimen/font_big3" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tv_contact1_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    app:boxBackgroundColor="@color/text_field_background"
+                    app:boxBackgroundMode="outline"
+                    app:boxStrokeColor="@color/text_field_background"
+                    app:boxStrokeWidth="0dp"
+                    app:cursorColor="@color/text_primary"
+                    app:hintEnabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tv_contact1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/pretendard_medium"
+                        android:hint="@string/text_contact_ex"
+                        android:inputType="phone"
+                        android:textSize="@dimen/font_big3" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/margin_small1"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/margin_big4"
+                    android:layout_weight="3"
+                    app:boxBackgroundColor="@color/text_field_background"
+                    app:boxBackgroundMode="outline"
+                    app:boxStrokeColor="@color/text_field_background"
+                    app:boxStrokeWidth="0dp"
+                    app:cursorColor="@color/text_primary"
+                    app:hintEnabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tv_relation2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/pretendard_medium"
+                        android:hint="@string/text_relation"
+                        android:inputType="text"
+                        android:textSize="@dimen/font_big3" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayoutContact2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    app:boxBackgroundColor="@color/text_field_background"
+                    app:boxBackgroundMode="outline"
+                    app:boxStrokeColor="@color/text_field_background"
+                    app:boxStrokeWidth="0dp"
+                    app:cursorColor="@color/text_primary"
+                    app:endIconMode="clear_text"
+                    app:hintEnabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tv_contact2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/pretendard_medium"
+                        android:hint="@string/text_contact_ex"
+                        android:inputType="phone"
+                        android:textSize="@dimen/font_big3" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/buttonIceSubmit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="36dp"
+                android:background="@drawable/background_radius_10"
+                android:fontFamily="@font/pretendard_bold"
+                android:contentDescription="@string/text_modify"
+                android:text="@string/text_modify"
+                android:textSize="@dimen/font_big2" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:visibility="gone"
+        android:indeterminateDrawable="@drawable/rotate_progress_bar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

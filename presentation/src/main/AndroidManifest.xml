@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application android:theme="@style/Base.Theme.DaOnGil">
+        <activity
+            android:name=".login_compose.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".setting.PolicyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".scheduleform.ModifyScheduleFormActivity"
+            android:exported="false" />
+        <activity
+            android:name=".schedule.PublicScheduleActivity"
+            android:exported="false" />
+        <activity
+            android:name=".schedulereview.ModifyScheduleReviewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".schedulereview.WriteScheduleReviewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".report.ReportActivity"
+            android:exported="false" />
+        <activity
+            android:name=".schedule.ScheduleDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".home.WriteReviewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".home.ReviewListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".home.DetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".scheduleform.ScheduleFormActivity"
+            android:exported="false" />
+        <activity
+            android:name=".emergency.EmergencyInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".myschedule.MyScheduleActivity"
+            android:exported="false" />
+        <activity
+            android:name=".emergency.PharmacyMapActivity"
+            android:exported="false" />
+        <activity
+            android:name=".emergency.EmergencyMapActivity"
+            android:exported="false" />
+        <activity
+            android:name=".concerntype.ConcernTypeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".bookmark.BookmarkActivity"
+            android:exported="false" />
+        <activity
+            android:name=".myreview.MyReviewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".myinfo.DeleteUserActivity"
+            android:exported="false" />
+        <activity
+            android:name=".myinfo.MyInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".login.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".splash.SplashActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".main.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".login.OnBoardingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".keyword.KeywordSearchActivity"
+            android:exported="false" />
+    </application>
+
+</manifest>

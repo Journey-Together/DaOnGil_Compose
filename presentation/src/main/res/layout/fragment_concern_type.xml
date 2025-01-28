@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbarConcernType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/back_icon">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/pretendard_medium"
+            android:text="@string/text_interest_type"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/font_big2" />
+
+    </com.google.android.material.appbar.MaterialToolbar>
+
+    <LinearLayout
+        android:id="@+id/concernTypeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarConcernType">
+
+        <TextView
+            android:id="@+id/textViewConcernTypeUseNickname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_basic"
+            android:layout_marginBottom="@dimen/margin_basic"
+            android:fontFamily="@font/pretendard_semibold"
+            android:textSize="@dimen/font_big2"
+            android:importantForAccessibility="no"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="다온길님의 관심 유형" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_basic"
+            android:layout_marginRight="@dimen/margin_basic"
+            android:layout_marginBottom="@dimen/margin_basic"
+            android:backgroundTint="@color/search_view_background"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="8dp"
+            app:strokeColor="#a3a3a4"
+            app:strokeWidth="0.5dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/margin_small1"
+                android:importantForAccessibility="noHideDescendants"
+                android:padding="@dimen/margin_big4">
+
+                <ImageView
+                    android:id="@+id/imageViewConcernTypePhysical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_big4"
+                    android:layout_marginTop="@dimen/margin_small1"
+                    android:src="@drawable/cc_unselected_physical_disability_icon"
+                    app:layout_constraintEnd_toStartOf="@id/imageViewConcernTypeVisual"
+                    app:layout_constraintHorizontal_chainStyle="spread"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imageViewConcernTypeVisual"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_small1"
+                    android:src="@drawable/cc_unselected_visual_impairment_icon"
+                    app:layout_constraintEnd_toStartOf="@id/imageViewConcernTypeHearing"
+                    app:layout_constraintStart_toEndOf="@id/imageViewConcernTypePhysical"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imageViewConcernTypeHearing"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small1"
+                    android:layout_marginEnd="@dimen/margin_big4"
+                    android:src="@drawable/cc_unselected_hearing_impairment_icon"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/imageViewConcernTypeVisual"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imageViewConcernTypeInfant"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/margin_small1"
+                    android:layout_marginStart="@dimen/margin_big1"
+                    android:paddingTop="@dimen/margin_small1"
+                    android:src="@drawable/cc_unselected_infant_family_icon"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/imageViewConcernTypeElderly"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/imageViewConcernTypePhysical" />
+
+                <ImageView
+                    android:id="@+id/imageViewConcernTypeElderly"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/margin_small1"
+                    android:layout_marginEnd="@dimen/margin_big1"
+                    android:paddingTop="@dimen/margin_small1"
+                    android:src="@drawable/cc_unselected_elderly_people_icon"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/imageViewConcernTypeInfant"
+                    app:layout_constraintTop_toBottomOf="@id/imageViewConcernTypeVisual" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+
+    <com.google.android.material.divider.MaterialDivider
+        android:id="@+id/concernTypeDivider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_big4"
+        app:dividerColor="@color/text_tertiary"
+        app:dividerThickness="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/concernTypeLayout" />
+
+    <LinearLayout
+        android:id="@+id/concernTypeModifyLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/margin_big4"
+        android:orientation="vertical"
+        android:padding="@dimen/margin_basic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/concernTypeDivider">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_basic"
+            android:fontFamily="@font/pretendard_medium"
+            android:text="@string/text_concern_type_subtitle"
+            android:textSize="@dimen/font_big2" />
+
+        <Button
+            android:id="@+id/buttonConcernType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_radius_10"
+            android:fontFamily="@font/pretendard_extrabold"
+            android:text="@string/text_concern_type_modify_move"
+            android:textSize="@dimen/font_big2" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/concernTypeErrorLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/toolbarConcernType">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@null"
+            app:srcCompat="@drawable/onboarding_clover" />
+
+        <TextView
+            android:id="@+id/concernTypeErrorMsg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_big4"
+            android:fontFamily="@font/cafe24_oneprettynight"
+            android:gravity="center"
+            android:lineSpacingMultiplier="1.2"
+            android:textSize="@dimen/font_big1"
+            tools:text="에러 문구" />
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/concernTypeProgressBar"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:indeterminateDrawable="@drawable/rotate_progress_bar"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
