@@ -22,6 +22,7 @@ gradlePlugin {
         "android.compose" to "AndroidComposePlugin",
         "android.library" to "AndroidLibraryPlugin",
         "android.retrofit" to "AndroidRetrofitConventionPlugin",
+        "androidx.datastore" to "AndroidDataStoreConventionPlugin",
         "java.library" to "JavaLibraryPlugin",
         "android.room" to "AndroidRoomConventionPlugin",
         "hilt.library" to "HiltConventionPlugin",

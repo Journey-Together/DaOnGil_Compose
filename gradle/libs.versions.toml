@@ -105,7 +105,7 @@ androidx-activity = { group = "androidx.activity", name = "activity", version.re
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "androidx-activity-compose" }
 androidx-lifecycle-viewmodel-compose = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "androidx-lifecycle" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "andoridx-appcompat" }
-androidx-datastore = { module = "androidx.datastore:datastore-preferences", version.ref = "androidx-datastore" }
+androidx-datastore-preferences = { group = "androidx.datastore", name = "datastore-preferences", version.ref = "androidx-datastore" }
 androidx-navigation = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "androidx-navigation" }
 androidx-navigation-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "androidx-navigation" }
 androidx-navigation-safe-args = { group = "androidx.navigation", name = "navigation-safe-args-gradle-plugin", version.ref = "androidx-navigation-safe-args" }
@@ -300,6 +300,7 @@ daongil-android-application = { id = "daongil.android.application", version.ref 
 daongil-android-hilt = { id = "daongil.hilt.library", version.ref = "unspecified" }
 daongil-compose = { id = "daongil.android.compose", version.ref = "unspecified" }
 daongil-retrofit = { id = "daongil.android.retrofit", version.ref = "unspecified" }
+daongil-datastore = { id = "daongil.androidx.datastore", version.ref = "unspecified" }
 daongil-firebase = { id = "daongil.android.firebase", version.ref = "unspecified" }
 daongil-room = { id = "daongil.android.room", version.ref = "unspecified" }
 daongil-moshi = { id = "daongil.android.moshi", version.ref = "unspecified" }
