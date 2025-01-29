@@ -21,6 +21,7 @@ gradlePlugin {
         "android.application" to "AndroidApplicationConventionPlugin",
         "android.compose" to "AndroidComposePlugin",
         "android.library" to "AndroidLibraryPlugin",
+        "android.retrofit" to "AndroidRetrofitConventionPlugin",
         "java.library" to "JavaLibraryPlugin",
         "android.room" to "AndroidRoomConventionPlugin",
         "hilt.library" to "HiltConventionPlugin",

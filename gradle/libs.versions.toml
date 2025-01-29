@@ -299,6 +299,7 @@ ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 daongil-android-application = { id = "daongil.android.application", version.ref = "unspecified" }
 daongil-android-hilt = { id = "daongil.hilt.library", version.ref = "unspecified" }
 daongil-compose = { id = "daongil.android.compose", version.ref = "unspecified" }
+daongil-retrofit = { id = "daongil.android.retrofit", version.ref = "unspecified" }
 daongil-firebase = { id = "daongil.android.firebase", version.ref = "unspecified" }
 daongil-room = { id = "daongil.android.room", version.ref = "unspecified" }
 daongil-moshi = { id = "daongil.android.moshi", version.ref = "unspecified" }
