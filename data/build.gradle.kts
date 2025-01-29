@@ -1,7 +1,10 @@
 import java.util.Properties
 
 plugins {
-    alias(libs.plugins.daongil.data)
+    alias(libs.plugins.daongil.android.library)
+    alias(libs.plugins.daongil.android.hilt)
+    alias(libs.plugins.daongil.room)
+    alias(libs.plugins.daongil.moshi)
 }
 
 val properties = Properties()
@@ -37,4 +40,15 @@ android {
     buildFeatures {
         buildConfig = true
     }
+}
+
+dependencies {
+    implementation(projects.domain)
+
+    implementation(libs.androidx.datastore)
+    implementation(libs.kotlinx.serialization.json)
+
+    implementation(libs.gson)
+
+    implementation(libs.bundles.network)
 }

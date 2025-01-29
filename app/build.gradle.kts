@@ -1,7 +1,9 @@
 import java.util.Properties
 
 plugins {
-    alias(libs.plugins.daongil.app)
+    alias(libs.plugins.daongil.android.application)
+    alias(libs.plugins.daongil.android.hilt)
+    alias(libs.plugins.daongil.firebase)
 }
 
 val properties = Properties()
@@ -32,4 +34,13 @@ android {
     buildFeatures {
         buildConfig = true
     }
+}
+
+dependencies {
+    implementation(projects.data)
+    implementation(projects.domain)
+    implementation(projects.presentation)
+
+    implementation(libs.kakao.user)
+    implementation(libs.navercorp)
 }

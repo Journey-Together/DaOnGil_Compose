@@ -26,10 +26,6 @@ gradlePlugin {
         "hilt.library" to "HiltConventionPlugin",
         "android.firebase" to "AndroidApplicationFirebaseConventionPlugin",
         "android.moshi" to "MoshiConventionPlugin",
-        "app" to "DaongilAppConventionPlugin",
-        "data" to "DaongilDataConventionPlugin",
-        "domain" to "DaongilDomainConventionPlugin",
-        "presentation" to "DaongilPresentationConventionPlugin"
     )
 
     plugins {

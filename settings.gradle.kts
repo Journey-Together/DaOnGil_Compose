@@ -19,8 +19,12 @@ dependencyResolutionManagement {
     }
 }
 
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 rootProject.name = "DaOnGil_CleanArchitecture"
+
 include(":app")
+
 include(":domain")
 include(":presentation")
 include(":data")
+include(":core:network")

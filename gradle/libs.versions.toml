@@ -296,7 +296,11 @@ firebase-crashlytics = { id = "com.google.firebase.crashlytics", version.ref="fi
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 
 # Custom Plugins (Build Logic)
-daongil-app = { id = "daongil.app", version.ref = "unspecified" }
-daongil-data = { id = "daongil.data", version.ref = "unspecified" }
-daongil-domain = { id = "daongil.domain", version.ref = "unspecified" }
-daongil-presentation = { id = "daongil.presentation", version.ref = "unspecified" }
+daongil-android-application = { id = "daongil.android.application", version.ref = "unspecified" }
+daongil-android-hilt = { id = "daongil.hilt.library", version.ref = "unspecified" }
+daongil-compose = { id = "daongil.android.compose", version.ref = "unspecified" }
+daongil-firebase = { id = "daongil.android.firebase", version.ref = "unspecified" }
+daongil-room = { id = "daongil.android.room", version.ref = "unspecified" }
+daongil-moshi = { id = "daongil.android.moshi", version.ref = "unspecified" }
+daongil-java-library = { id = "daongil.java.library", version.ref = "unspecified" }
+daongil-android-library = { id = "daongil.android.library", version.ref = "unspecified" }
