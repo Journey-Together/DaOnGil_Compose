@@ -96,7 +96,6 @@ circleindicator = "2.1.6"
 flexbox = "3.0.0"
 photoview = "1.0.2"
 unspecified = "1.0.0"
-constraintlayout = "2.2.0"
 
 [libraries]
 # Androidx Core
@@ -202,7 +201,6 @@ android-gradle-plugin = { group = "com.android.tools.build", name = "gradle", ve
 kotlin-gradle-plugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
 androidx-room-gradle-plugin = { group = "androidx.room", name = "room-gradle-plugin", version.ref = "room-gradle-plugin" }
 ksp-gradle-plugin = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
-androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 
 [bundles]
 
