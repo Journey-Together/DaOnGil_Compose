@@ -8,7 +8,6 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
-import kr.techit.lion.domain.model.Activation
 import kr.techit.lion.presentation.R
 import kr.techit.lion.presentation.databinding.ActivitySplashBinding
 import kr.techit.lion.presentation.delegate.NetworkEvent
@@ -62,18 +61,16 @@ class SplashActivity : AppCompatActivity() {
             }
 
             repeatOnStarted {
-                viewModel.userActivationState.collect {
-                    when (it) {
-                        Activation.Activate -> {
+                viewModel.userActivationState.collect { isActivated ->
+                    when (isActivated) {
+                        true -> {
                             delay(DELAY_FOR_DISPLAY_SPLASH_ANIMATION)
                             startActivity(Intent(this@SplashActivity, MainActivity::class.java))
                             finish()
                         }
-
-                        Activation.DeActivate -> {
+                        false -> {
                             viewModel.whenUserActivationIsDeActivate()
                         }
-                        Activation.Loading -> Unit
                     }
                 }
             }

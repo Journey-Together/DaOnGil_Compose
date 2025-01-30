@@ -11,7 +11,6 @@ import android.os.Handler
 import android.os.Looper
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -37,8 +36,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import kr.techit.lion.domain.model.Activation
-import kr.techit.lion.domain.model.AppTheme
 import kr.techit.lion.domain.model.mainplace.AroundPlace
 import kr.techit.lion.domain.model.mainplace.RecommendPlace
 import kr.techit.lion.presentation.R
@@ -95,43 +92,38 @@ class HomeMainFragment : Fragment(R.layout.fragment_home_main) {
         val binding = FragmentHomeMainBinding.bind(view)
 
         repeatOnViewStarted {
-            launch { collectAppTheme() }
             launch { collectNetworkState(binding) }
             launch { observeConnectivity(binding) }
             launch { observeUserActivation() }
         }
 
-        settingAppTheme(binding)
+        settingAppTheme()
         checkLocationPermission(binding)
         settingVPAdapter(binding)
         getRecommendPlaceInfo(binding)
         settingSearchBanner(binding)
     }
 
-    private fun settingAppTheme(binding: FragmentHomeMainBinding) {
+    private fun settingAppTheme() {
         childFragmentManager.setFragmentResultListener(
             "negativeButtonClick",
             viewLifecycleOwner
         ) { _, _ ->
-            viewModel.onClickThemeChangeButton(AppTheme.SYSTEM)
+            viewModel.setActivation()
         }
 
         childFragmentManager.setFragmentResultListener(
             "positiveButtonClick",
             viewLifecycleOwner
         ) { _, _ ->
-            viewModel.onClickThemeChangeButton(AppTheme.HIGH_CONTRAST)
+            viewModel.setActivation()
         }
 
         childFragmentManager.setFragmentResultListener(
             "completeButtonClick",
             viewLifecycleOwner
         ) { _, _ ->
-            viewModel.onClickThemeChangeButton(AppTheme.SYSTEM)
-        }
-
-        binding.homeHighcontrastBtn.setOnClickListener {
-            viewModel.onClickThemeToggleButton(isDarkTheme(resources.configuration))
+            viewModel.setActivation()
         }
     }
 
@@ -489,22 +481,6 @@ class HomeMainFragment : Fragment(R.layout.fragment_home_main) {
         return (configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) == Configuration.UI_MODE_NIGHT_YES
     }
 
-    private suspend fun collectAppTheme() {
-        viewModel.appTheme.collect {
-            when (it) {
-                AppTheme.LIGHT ->
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-
-                AppTheme.HIGH_CONTRAST ->
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-
-                AppTheme.SYSTEM ->
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
-
-                AppTheme.LOADING -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-            }
-        }
-    }
 
     private suspend fun collectNetworkState(binding: FragmentHomeMainBinding) {
         with(binding) {
@@ -534,12 +510,10 @@ class HomeMainFragment : Fragment(R.layout.fragment_home_main) {
     }
 
     private suspend fun observeUserActivation() {
-        viewModel.userActivationState.collect {
-            when (it) {
-                Activation.Loading,
-                Activation.Activate -> return@collect
-
-                Activation.DeActivate -> {
+        viewModel.userActivationState.collect { isActivated ->
+            when (isActivated) {
+                true -> return@collect
+                false -> {
                     if (isDarkTheme(resources.configuration)) {
                         showThemeGuideDialog()
                     } else {
