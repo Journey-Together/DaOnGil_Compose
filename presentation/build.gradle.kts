@@ -15,6 +15,7 @@ android {
 }
 
 dependencies{
+    implementation(projects.core.designsystem)
     implementation(projects.domain)
 
     implementation(libs.bundles.androidx)
