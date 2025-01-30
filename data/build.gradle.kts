@@ -36,19 +36,19 @@ android {
         buildConfigField("String", "NAVER_MAP_SECRET", "\"$naverMapSecret\"")
     }
 
-
     buildFeatures {
         buildConfig = true
     }
 }
 
 dependencies {
+    implementation(projects.core.network)
+    implementation(projects.core.datastore)
+    implementation(projects.core.database)
+
     implementation(projects.domain)
 
-    implementation(libs.androidx.datastore)
-    implementation(libs.kotlinx.serialization.json)
-
     implementation(libs.gson)
-
     implementation(libs.bundles.network)
+    implementation(libs.kotlinx.serialization.json)
 }

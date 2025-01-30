@@ -1,11 +1,12 @@
 package kr.techit.lion.data.datasource
 
-import kr.techit.lion.data.service.EmergencyService
 import kr.techit.lion.domain.exception.Result
 import kr.techit.lion.data.common.execute
+import kr.techit.lion.data.mapper.toDomainModel
 import kr.techit.lion.domain.model.EmergencyBasicInfo
 import kr.techit.lion.domain.model.EmergencyMessageInfo
 import kr.techit.lion.domain.model.EmergencyRealtimeInfo
+import kr.techit.lion.network.service.EmergencyService
 import javax.inject.Inject
 
 internal class EmergencyDataSource @Inject constructor(

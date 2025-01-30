@@ -1,7 +1,7 @@
 package kr.techit.lion.data.datasource
 
-import kr.techit.lion.data.database.dao.SigunguCodeDao
-import kr.techit.lion.data.database.entity.SigunguCodeEntity
+import kr.techit.lion.database.dao.SigunguCodeDao
+import kr.techit.lion.database.entity.SigunguCodeEntity
 import javax.inject.Inject
 
 internal class SigunguCodeDatasource @Inject constructor(

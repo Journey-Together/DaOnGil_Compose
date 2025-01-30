@@ -1,7 +1,7 @@
 package kr.techit.lion.data.datasource
 
 import kr.techit.lion.data.common.execute
-import kr.techit.lion.data.service.ReportService
+import kr.techit.lion.network.service.ReportService
 import okhttp3.RequestBody
 import javax.inject.Inject
 

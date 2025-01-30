@@ -1,12 +1,13 @@
 package kr.techit.lion.data.datasource
 
 import kr.techit.lion.data.common.execute
-import kr.techit.lion.data.service.BookmarkService
+import kr.techit.lion.data.mapper.toDomainModel
 import kr.techit.lion.domain.exception.Result
 import kr.techit.lion.domain.model.BookmarkedPlace
 import kr.techit.lion.domain.model.PlaceBookmark
 import kr.techit.lion.domain.model.PlanBookmark
 import kr.techit.lion.domain.model.PlanDetailBookmark
+import kr.techit.lion.network.service.BookmarkService
 import javax.inject.Inject
 
 

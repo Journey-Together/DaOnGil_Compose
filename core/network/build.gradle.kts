@@ -1,43 +1,40 @@
+import java.util.Properties
+
 plugins {
-    alias(libs.plugins.android.library)
-    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.daongil.android.library)
+    alias(libs.plugins.daongil.retrofit)
+    alias(libs.plugins.daongil.android.hilt)
+    alias(libs.plugins.daongil.moshi)
 }
+
+val properties = Properties()
+properties.load(project.rootProject.file("local.properties").inputStream())
+val baseUrl = properties.getProperty("base_url") ?: ""
+val emergencyBaseUrl = properties.getProperty("emergency_base_url") ?: ""
+val emergencyApiKey = properties.getProperty("emergency_api_key") ?: ""
+val aedBaseUrl = properties.getProperty("aed_base_url") ?: ""
+val pharmacyBaseUrl = properties.getProperty("pharmacy_base_url") ?: ""
+val korApiKey = properties.getProperty("kor_api_key") ?: ""
+val naverMapBase = properties.getProperty("naver_map_base") ?: ""
+val naverMapId = properties.getProperty("naver_map_id") ?: ""
+val naverMapSecret = properties.getProperty("naver_map_secret") ?: ""
 
 android {
     namespace = "kr.techit.lion.network"
-    compileSdk = 35
+
+    buildFeatures {
+        buildConfig = true
+    }
 
     defaultConfig {
-        minSdk = 24
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles("consumer-rules.pro")
+        buildConfigField("String", "NAVER_MAP_BASE", "\"$naverMapBase\"")
+        buildConfigField("String", "EMERGENCY_BASE_URL", "\"$emergencyBaseUrl\"")
+        buildConfigField("String", "EMERGENCY_API_KEY", "\"$emergencyApiKey\"")
+        buildConfigField("String", "BASE_URL", "\"$baseUrl\"")
+        buildConfigField("String", "AED_BASE_URL", "\"$aedBaseUrl\"")
+        buildConfigField("String", "PHARMACY_BASE_URL", "\"$pharmacyBaseUrl\"")
+        buildConfigField("String", "KOR_API_KEY", "\"$korApiKey\"")
+        buildConfigField("String", "NAVER_MAP_ID", "\"$naverMapId\"")
+        buildConfigField("String", "NAVER_MAP_SECRET", "\"$naverMapSecret\"")
     }
-
-    buildTypes {
-        release {
-            isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
-        }
-    }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
-    kotlinOptions {
-        jvmTarget = "11"
-    }
-}
-
-dependencies {
-
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
-    implementation(libs.google.material)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
 }

@@ -7,6 +7,7 @@ import kr.techit.lion.data.dto.request.toMultiPartBody
 import kr.techit.lion.data.dto.request.toMultipartBody
 import kr.techit.lion.data.dto.request.toRequestBody
 import kr.techit.lion.data.dto.request.toRequestModel
+import kr.techit.lion.data.mapper.toDomainModel
 import kr.techit.lion.domain.model.search.ListSearchOption
 import kr.techit.lion.domain.model.search.ListSearchResultList
 import kr.techit.lion.domain.model.search.MapSearchOption
