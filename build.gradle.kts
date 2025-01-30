@@ -19,3 +19,7 @@ plugins {
     alias(libs.plugins.kotlin.serialization) apply false
     alias(libs.plugins.ksp) apply false
 }
+
+apply{
+    from("gradle/projectDependencyGraph.gradle")
+}
