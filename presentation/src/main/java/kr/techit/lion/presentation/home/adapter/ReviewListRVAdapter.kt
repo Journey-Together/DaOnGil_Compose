@@ -11,8 +11,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import kr.techit.lion.domain.model.placereviewlist.PlaceReview
 import kr.techit.lion.presentation.R
+import kr.techit.lion.presentation.compose.navigation.route.IntroRoute
+import kr.techit.lion.presentation.compose.screen.IntroActivity
 import kr.techit.lion.presentation.databinding.ItemDetailReviewBigBinding
-import kr.techit.lion.presentation.login.LoginActivity
 import kr.techit.lion.presentation.main.dialog.ConfirmDialog
 import kr.techit.lion.presentation.report.ReportActivity
 
@@ -92,7 +93,9 @@ class ReviewListRVAdapter(
                 subtitle,
                 "로그인하기",
             ) {
-                val intent = Intent(context, LoginActivity::class.java)
+                val intent = Intent(context, IntroActivity::class.java).apply {
+                    putExtra("destination", IntroRoute.Login.route)
+                }
                 context.startActivity(intent)
             }
 

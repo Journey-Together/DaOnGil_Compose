@@ -6,12 +6,13 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kr.techit.lion.presentation.R
+import kr.techit.lion.presentation.compose.navigation.route.IntroRoute
+import kr.techit.lion.presentation.compose.screen.IntroActivity
 import kr.techit.lion.presentation.databinding.ActivityDeleteUserBinding
 import kr.techit.lion.presentation.delegate.NetworkEvent
 import kr.techit.lion.presentation.delegate.NetworkState
 import kr.techit.lion.presentation.ext.repeatOnStarted
 import kr.techit.lion.presentation.ext.showInfinitySnackBar
-import kr.techit.lion.presentation.login.LoginActivity
 import kr.techit.lion.presentation.main.dialog.ConfirmDialog
 import kr.techit.lion.presentation.myinfo.vm.DeleteUserViewModel
 
@@ -38,8 +39,7 @@ class DeleteUserActivity : AppCompatActivity() {
                     this@DeleteUserActivity.getString(R.string.text_member_withdrawal_confirm),
                 ) {
                     viewModel.withdrawal {
-                        startActivity(Intent(this@DeleteUserActivity, LoginActivity::class.java))
-                        finish()
+                        navigateToLogin()
                     }
                 }
                 dialog.isCancelable = false
@@ -51,8 +51,7 @@ class DeleteUserActivity : AppCompatActivity() {
                 when (event) {
                     NetworkEvent.Loading -> Unit
                     NetworkEvent.Success -> {
-                        startActivity(Intent(this@DeleteUserActivity, LoginActivity::class.java))
-                        finish()
+                        navigateToLogin()
                     }
                     is NetworkEvent.Error -> {
                         showInfinitySnackBar(binding.root, event.msg)
@@ -60,5 +59,13 @@ class DeleteUserActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    private fun navigateToLogin(){
+        val intent = Intent(this@DeleteUserActivity, IntroActivity::class.java).apply {
+            putExtra("destination", IntroRoute.Login.route)
+        }
+        startActivity(intent)
+        finish()
     }
 }

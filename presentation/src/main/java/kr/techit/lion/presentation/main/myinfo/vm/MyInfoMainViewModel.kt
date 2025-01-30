@@ -1,30 +1,23 @@
 package kr.techit.lion.presentation.main.myinfo.vm
 
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
-import kr.techit.lion.domain.exception.onError
-import kr.techit.lion.domain.exception.onSuccess
 import kr.techit.lion.domain.repository.AuthRepository
 import kr.techit.lion.domain.repository.MemberRepository
 import kr.techit.lion.presentation.base.BaseViewModel
+import kr.techit.lion.presentation.compose.screen.login.model.LogInStatus
 import kr.techit.lion.presentation.connectivity.connectivity.ConnectivityObserver
 import kr.techit.lion.presentation.connectivity.connectivity.ConnectivityStatus
-import kr.techit.lion.presentation.delegate.NetworkErrorDelegate
 import kr.techit.lion.presentation.delegate.NetworkEventDelegate
-import kr.techit.lion.presentation.delegate.NetworkState
 import kr.techit.lion.presentation.ext.stateInUi
 import kr.techit.lion.presentation.main.myinfo.vm.model.ProfileState
 import kr.techit.lion.presentation.main.myinfo.vm.model.toUiModel
-import kr.techit.lion.presentation.splash.model.LogInStatus
 import javax.inject.Inject
 
 @HiltViewModel

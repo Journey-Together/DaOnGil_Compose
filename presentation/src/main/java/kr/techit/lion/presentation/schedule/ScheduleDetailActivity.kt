@@ -18,6 +18,9 @@ import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.launch
 import kr.techit.lion.domain.model.ScheduleDetail
 import kr.techit.lion.presentation.R
+import kr.techit.lion.presentation.compose.navigation.route.IntroRoute
+import kr.techit.lion.presentation.compose.screen.IntroActivity
+import kr.techit.lion.presentation.compose.screen.login.model.LogInStatus
 import kr.techit.lion.presentation.databinding.ActivityScheduleDetailBinding
 import kr.techit.lion.presentation.delegate.NetworkState
 import kr.techit.lion.presentation.ext.repeatOnStarted
@@ -25,7 +28,6 @@ import kr.techit.lion.presentation.ext.setImageSmall
 import kr.techit.lion.presentation.ext.showPhotoDialog
 import kr.techit.lion.presentation.ext.showSnackbar
 import kr.techit.lion.presentation.home.DetailActivity
-import kr.techit.lion.presentation.login.LoginActivity
 import kr.techit.lion.presentation.main.dialog.ConfirmDialog
 import kr.techit.lion.presentation.connectivity.ConnectivityObserver
 import kr.techit.lion.presentation.connectivity.NetworkConnectivityObserver
@@ -41,7 +43,6 @@ import kr.techit.lion.presentation.schedule.vm.ScheduleDetailViewModel
 import kr.techit.lion.presentation.scheduleform.ModifyScheduleFormActivity
 import kr.techit.lion.presentation.schedulereview.ModifyScheduleReviewActivity
 import kr.techit.lion.presentation.schedulereview.WriteScheduleReviewActivity
-import kr.techit.lion.presentation.splash.model.LogInStatus
 import java.util.Timer
 import kotlin.concurrent.scheduleAtFixedRate
 
@@ -572,7 +573,9 @@ class ScheduleDetailActivity : AppCompatActivity() {
             subtitle,
             "로그인하기",
         ) {
-            val intent = Intent(this, LoginActivity::class.java)
+            val intent = Intent(this@ScheduleDetailActivity, IntroActivity::class.java).apply {
+                putExtra("destination", IntroRoute.Login.route)
+            }
             startActivity(intent)
         }
         dialog.isCancelable = true

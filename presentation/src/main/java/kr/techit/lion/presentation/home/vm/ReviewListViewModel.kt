@@ -14,9 +14,9 @@ import kr.techit.lion.domain.exception.onSuccess
 import kr.techit.lion.domain.model.placereviewlist.PlaceReviewInfo
 import kr.techit.lion.domain.repository.AuthRepository
 import kr.techit.lion.domain.repository.PlaceRepository
+import kr.techit.lion.presentation.compose.screen.login.model.LogInStatus
 import kr.techit.lion.presentation.delegate.NetworkErrorDelegate
 import kr.techit.lion.presentation.delegate.NetworkState
-import kr.techit.lion.presentation.splash.model.LogInStatus
 import javax.inject.Inject
 
 @HiltViewModel
