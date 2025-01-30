@@ -9,8 +9,10 @@
 
     <application android:theme="@style/Base.Theme.DaOnGil">
         <activity
-            android:name=".login_compose.LoginActivity"
-            android:exported="false" />
+            android:name=".compose.screen.IntroActivity"
+            android:exported="true" >
+
+        </activity>
         <activity
             android:name=".setting.PolicyActivity"
             android:exported="false" />
@@ -72,23 +74,17 @@
             android:name=".myinfo.MyInfoActivity"
             android:exported="false" />
         <activity
-            android:name=".login.LoginActivity"
-            android:exported="false" />
-        <activity
-            android:name=".splash.SplashActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:name=".compose.screen.splash.SplashActivity"
+            android:exported="false">
         </activity>
         <activity
             android:name=".main.MainActivity"
-            android:exported="false" />
-        <activity
-            android:name=".login.OnBoardingActivity"
-            android:exported="false" />
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".keyword.KeywordSearchActivity"
             android:exported="false" />
