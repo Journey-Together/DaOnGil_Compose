@@ -1,9 +1,10 @@
 package kr.techit.lion.data.datasource
 
-import kr.techit.lion.data.service.PharmacyService
 import kr.techit.lion.domain.model.PharmacyMapInfo
 import kr.techit.lion.domain.exception.Result
 import kr.techit.lion.data.common.execute
+import kr.techit.lion.data.mapper.toDomainModel
+import kr.techit.lion.network.service.PharmacyService
 import javax.inject.Inject
 
 internal class PharmacyDataSource @Inject constructor(

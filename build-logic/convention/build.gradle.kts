@@ -21,15 +21,13 @@ gradlePlugin {
         "android.application" to "AndroidApplicationConventionPlugin",
         "android.compose" to "AndroidComposePlugin",
         "android.library" to "AndroidLibraryPlugin",
+        "android.retrofit" to "AndroidRetrofitConventionPlugin",
+        "androidx.datastore" to "AndroidDataStoreConventionPlugin",
         "java.library" to "JavaLibraryPlugin",
         "android.room" to "AndroidRoomConventionPlugin",
         "hilt.library" to "HiltConventionPlugin",
         "android.firebase" to "AndroidApplicationFirebaseConventionPlugin",
         "android.moshi" to "MoshiConventionPlugin",
-        "app" to "DaongilAppConventionPlugin",
-        "data" to "DaongilDataConventionPlugin",
-        "domain" to "DaongilDomainConventionPlugin",
-        "presentation" to "DaongilPresentationConventionPlugin"
     )
 
     plugins {

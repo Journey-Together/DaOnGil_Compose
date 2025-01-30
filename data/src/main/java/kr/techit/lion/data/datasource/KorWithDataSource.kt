@@ -1,8 +1,8 @@
 package kr.techit.lion.data.datasource
 
 import kr.techit.lion.data.dto.request.AreaCodeRequest
-import kr.techit.lion.data.dto.response.areacode.AreaCodeResponse
-import kr.techit.lion.data.service.KorWithService
+import kr.techit.lion.network.response.areacode.AreaCodeResponse
+import kr.techit.lion.network.service.KorWithService
 import javax.inject.Inject
 
 internal class KorWithDataSource @Inject constructor(

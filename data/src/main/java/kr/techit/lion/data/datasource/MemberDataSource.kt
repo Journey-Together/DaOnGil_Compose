@@ -1,11 +1,12 @@
 package kr.techit.lion.data.datasource
 
 import kr.techit.lion.domain.model.MyInfo
-import kr.techit.lion.data.service.MemberService
 import kr.techit.lion.data.common.execute
+import kr.techit.lion.data.mapper.toDomainModel
 import kr.techit.lion.domain.model.ConcernType
 import kr.techit.lion.domain.model.MyDefaultInfo
 import kr.techit.lion.domain.exception.Result
+import kr.techit.lion.network.service.MemberService
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import javax.inject.Inject

@@ -10,19 +10,16 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import kr.techit.lion.domain.exception.onError
 import kr.techit.lion.domain.exception.onSuccess
-import kr.techit.lion.domain.model.Activation
-import kr.techit.lion.domain.model.AppTheme
-import kr.techit.lion.domain.model.AppTheme.Companion.getNewTheme
 import kr.techit.lion.domain.model.mainplace.AroundPlace
 import kr.techit.lion.domain.model.mainplace.RecommendPlace
 import kr.techit.lion.domain.repository.ActivationRepository
-import kr.techit.lion.domain.repository.AppThemeRepository
 import kr.techit.lion.domain.repository.AreaCodeRepository
 import kr.techit.lion.domain.repository.NaverMapRepository
 import kr.techit.lion.domain.repository.PlaceRepository
 import kr.techit.lion.domain.repository.SigunguCodeRepository
 import kr.techit.lion.presentation.delegate.NetworkErrorDelegate
 import kr.techit.lion.presentation.delegate.NetworkState
+import kr.techit.lion.presentation.ext.shareInUi
 import kr.techit.lion.presentation.ext.stateInUi
 import kr.techit.lion.presentation.main.home.HomeMainFragment.Companion.DEFAULT_AREA
 import kr.techit.lion.presentation.main.home.HomeMainFragment.Companion.DEFAULT_SIGUNGU
@@ -32,7 +29,6 @@ import kotlin.coroutines.suspendCoroutine
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    private val appThemeRepository: AppThemeRepository,
     private val placeRepository: PlaceRepository,
     private val areaCodeRepository: AreaCodeRepository,
     private val sigunguCodeRepository: SigunguCodeRepository,
@@ -52,7 +48,7 @@ class HomeViewModel @Inject constructor(
 
     val userActivationState = activationRepository
         .activation
-        .stateInUi(scope = viewModelScope, initialValue = Activation.Loading)
+        .shareInUi(scope = viewModelScope)
 
     private val _area = MutableLiveData<String>()
     val area: LiveData<String> = _area
@@ -60,27 +56,9 @@ class HomeViewModel @Inject constructor(
     private val _locationMessage = MutableLiveData<String>()
     val locationMessage: LiveData<String> get() = _locationMessage
 
-    val appTheme = appThemeRepository.getAppTheme().stateInUi(
-        viewModelScope, AppTheme.LOADING
-    )
-
-    private fun setAppTheme(appTheme: AppTheme) {
+    fun setActivation(){
         viewModelScope.launch {
-            appThemeRepository.saveAppTheme(appTheme)
-        }
-    }
-
-    // 상단 테마 토글 버튼 클릭시
-    fun onClickThemeToggleButton(isDarkTheme: Boolean) {
-        val newAppTheme = getNewTheme(appTheme.value, isDarkTheme)
-        setAppTheme(newAppTheme)
-    }
-
-    // 테마 설정 다이얼로그 클릭시
-    fun onClickThemeChangeButton(theme: AppTheme) {
-        viewModelScope.launch {
-            setAppTheme(theme)
-            activationRepository.saveUserActivation(Activation.Activate)
+            activationRepository.saveUserActivation()
         }
     }
 

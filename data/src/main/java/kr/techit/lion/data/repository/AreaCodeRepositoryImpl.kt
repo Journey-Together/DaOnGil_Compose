@@ -1,9 +1,9 @@
 package kr.techit.lion.data.repository
 
-import kr.techit.lion.data.database.entity.toDomainModel
-import kr.techit.lion.data.database.entity.toEntity
 import kr.techit.lion.data.datasource.AreaCodeDataSource
+import kr.techit.lion.data.mapper.toDomainModel
 import kr.techit.lion.data.mapper.toFullAreaName
+import kr.techit.lion.database.entity.AreaCodeEntity
 import kr.techit.lion.domain.model.area.AreaCode
 import kr.techit.lion.domain.model.area.AreaCodeList
 import kr.techit.lion.domain.repository.AreaCodeRepository
@@ -28,8 +28,12 @@ internal class AreaCodeRepositoryImpl @Inject constructor(
     }
 
     override suspend fun addAreaCodeInfo(areaCodeList: List<AreaCode>) {
-        areaCodeDataSource.addAreaCodeInfoList(areaCodeList.map {
-                AreaCode(it.code, it.name.toFullAreaName()).toEntity()
+        areaCodeDataSource.addAreaCodeInfoList(
+            areaCodeList.map {
+                AreaCodeEntity(
+                    code = it.code,
+                    name = it.name.toFullAreaName()
+                )
             }
         )
     }

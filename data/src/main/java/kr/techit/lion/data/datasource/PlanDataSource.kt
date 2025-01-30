@@ -1,7 +1,7 @@
 package kr.techit.lion.data.datasource
 
 import kr.techit.lion.data.common.execute
-import kr.techit.lion.data.service.PlanService
+import kr.techit.lion.data.mapper.toDomainModel
 import kr.techit.lion.domain.exception.Result
 import kr.techit.lion.domain.model.MyMainSchedule
 import kr.techit.lion.domain.model.OpenPlan
@@ -11,6 +11,7 @@ import kr.techit.lion.domain.model.ScheduleDetailReview
 import kr.techit.lion.domain.model.schedule.MyElapsedSchedules
 import kr.techit.lion.domain.model.schedule.MyUpcomingSchedules
 import kr.techit.lion.domain.model.scheduleform.PlaceSearchResult
+import kr.techit.lion.network.service.PlanService
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import javax.inject.Inject
@@ -106,6 +107,4 @@ internal class PlanDataSource @Inject constructor(
     suspend fun deleteMyPlanSchedule(planId: Long): Result<Unit> = execute {
         planService.deleteMyPlanSchedule(planId)
     }
-
-
 }

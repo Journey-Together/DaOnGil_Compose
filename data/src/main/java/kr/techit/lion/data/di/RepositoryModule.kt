@@ -5,7 +5,6 @@ import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import kr.techit.lion.data.repository.AedRepositoryImpl
-import kr.techit.lion.data.repository.AppThemeRepositoryImpl
 import kr.techit.lion.data.repository.AreaCodeRepositoryImpl
 import kr.techit.lion.data.repository.AuthRepositoryImpl
 import kr.techit.lion.data.repository.BookmarkRepositoryImpl
@@ -21,7 +20,6 @@ import kr.techit.lion.data.repository.RecentlySearchKeywordRepositoryImpl
 import kr.techit.lion.data.repository.ReportRepositoryImpl
 import kr.techit.lion.data.repository.SigunguCodeRepositoryImpl
 import kr.techit.lion.domain.repository.AedRepository
-import kr.techit.lion.domain.repository.AppThemeRepository
 import kr.techit.lion.domain.repository.AreaCodeRepository
 import kr.techit.lion.domain.repository.AuthRepository
 import kr.techit.lion.domain.repository.BookmarkRepository
@@ -62,9 +60,6 @@ internal interface RepositoryModule {
     @Binds
     fun bindRecentlySearchKeywordRepository(recentlySearchKeywordRepositoryImpl: RecentlySearchKeywordRepositoryImpl)
     : RecentlySearchKeywordRepository
-
-    @Binds
-    fun bindAppThemeRepository(appThemeRepositoryImpl: AppThemeRepositoryImpl): AppThemeRepository
 
     @Binds
     fun bindBookmarkRepository(bookmarkRepositoryImpl: BookmarkRepositoryImpl): BookmarkRepository

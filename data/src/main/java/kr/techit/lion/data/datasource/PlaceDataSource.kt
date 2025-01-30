@@ -2,9 +2,8 @@ package kr.techit.lion.data.datasource
 
 import kr.techit.lion.data.dto.request.ListSearchRequest
 import kr.techit.lion.data.dto.request.MapSearchRequest
-import kr.techit.lion.data.dto.response.searchplace.list.toDomainModel
-import kr.techit.lion.data.service.PlaceService
 import kr.techit.lion.data.common.execute
+import kr.techit.lion.data.mapper.toDomainModel
 import kr.techit.lion.domain.exception.Result
 import kr.techit.lion.domain.model.MyPlaceReview
 import kr.techit.lion.domain.model.search.ListSearchResultList
@@ -13,6 +12,7 @@ import kr.techit.lion.domain.model.detailplace.PlaceDetailInfo
 import kr.techit.lion.domain.model.detailplace.PlaceDetailInfoGuest
 import kr.techit.lion.domain.model.placereview.WritePlaceReview
 import kr.techit.lion.domain.model.placereviewlist.PlaceReviewInfo
+import kr.techit.lion.network.service.PlaceService
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import javax.inject.Inject

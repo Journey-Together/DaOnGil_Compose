@@ -1,13 +1,14 @@
 package kr.techit.lion.data.datasource
 
-import kr.techit.lion.data.database.dao.RecentlySearchKeywordDAO
-import kr.techit.lion.data.database.entity.RecentlySearchKeywordEntity
+import kotlinx.coroutines.flow.Flow
+import kr.techit.lion.database.dao.RecentlySearchKeywordDAO
+import kr.techit.lion.database.entity.RecentlySearchKeywordEntity
 import javax.inject.Inject
 
 internal class RecentlySearchKeywordDataSource @Inject constructor(
     private val recentlySearchKeywordDao: RecentlySearchKeywordDAO
 ) {
-    fun readAllKeyword() = recentlySearchKeywordDao.readAllKeyword()
+    fun readAllKeyword(): Flow<List<RecentlySearchKeywordEntity>> = recentlySearchKeywordDao.readAllKeyword()
 
     suspend fun insertKeyword(keyword: RecentlySearchKeywordEntity) = recentlySearchKeywordDao.insertKeyword(keyword)
 

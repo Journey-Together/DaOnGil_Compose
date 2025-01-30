@@ -1,7 +1,10 @@
 import java.util.Properties
 
 plugins {
-    alias(libs.plugins.daongil.data)
+    alias(libs.plugins.daongil.android.library)
+    alias(libs.plugins.daongil.android.hilt)
+    alias(libs.plugins.daongil.room)
+    alias(libs.plugins.daongil.moshi)
 }
 
 val properties = Properties()
@@ -33,8 +36,19 @@ android {
         buildConfigField("String", "NAVER_MAP_SECRET", "\"$naverMapSecret\"")
     }
 
-
     buildFeatures {
         buildConfig = true
     }
+}
+
+dependencies {
+    implementation(projects.core.network)
+    implementation(projects.core.datastore)
+    implementation(projects.core.database)
+
+    implementation(projects.domain)
+
+    implementation(libs.gson)
+    implementation(libs.bundles.network)
+    implementation(libs.kotlinx.serialization.json)
 }

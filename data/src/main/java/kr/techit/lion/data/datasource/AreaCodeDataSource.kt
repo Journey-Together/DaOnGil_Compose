@@ -1,7 +1,7 @@
 package kr.techit.lion.data.datasource
 
-import kr.techit.lion.data.database.entity.AreaCodeEntity
-import kr.techit.lion.data.database.dao.AreaCodeDao
+import kr.techit.lion.database.dao.AreaCodeDao
+import kr.techit.lion.database.entity.AreaCodeEntity
 import javax.inject.Inject
 
 internal class AreaCodeDataSource @Inject constructor(

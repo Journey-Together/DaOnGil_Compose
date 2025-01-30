@@ -1,6 +1,7 @@
 package kr.techit.lion.data.repository
 
 import kr.techit.lion.data.datasource.KorWithDataSource
+import kr.techit.lion.data.mapper.toDomainModel
 import kr.techit.lion.domain.model.area.AreaCode
 import kr.techit.lion.domain.repository.KorWithRepository
 import javax.inject.Inject

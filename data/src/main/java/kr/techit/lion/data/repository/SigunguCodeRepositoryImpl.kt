@@ -1,8 +1,8 @@
 package kr.techit.lion.data.repository
 
-import kr.techit.lion.data.database.entity.toDomainModel
-import kr.techit.lion.data.database.entity.toEntity
 import kr.techit.lion.data.datasource.SigunguCodeDatasource
+import kr.techit.lion.data.mapper.toDomainModel
+import kr.techit.lion.database.entity.SigunguCodeEntity
 import kr.techit.lion.domain.model.area.SigunguCode
 import kr.techit.lion.domain.model.area.SigunguCodeList
 import kr.techit.lion.domain.repository.SigunguCodeRepository
@@ -25,6 +25,14 @@ internal class SigunguCodeRepositoryImpl @Inject constructor(
     }
 
     override suspend fun addSigunguCode(sigunguCode: List<SigunguCode>) {
-        sigunguCodeDatasource.addSigunguCodeInfoList(sigunguCode.map { it.toEntity() })
+        sigunguCodeDatasource.addSigunguCodeInfoList(
+            sigunguCode.map {
+                SigunguCodeEntity(
+                    sigunguName = it.sigunguName,
+                    sigunguCode = it.sigunguCode,
+                    areaCode = it.areaCode
+                )
+            }
+        )
     }
 }

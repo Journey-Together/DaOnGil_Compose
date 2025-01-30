@@ -96,7 +96,6 @@ circleindicator = "2.1.6"
 flexbox = "3.0.0"
 photoview = "1.0.2"
 unspecified = "1.0.0"
-constraintlayout = "2.2.0"
 
 [libraries]
 # Androidx Core
@@ -105,7 +104,7 @@ androidx-activity = { group = "androidx.activity", name = "activity", version.re
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "androidx-activity-compose" }
 androidx-lifecycle-viewmodel-compose = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "androidx-lifecycle" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "andoridx-appcompat" }
-androidx-datastore = { module = "androidx.datastore:datastore-preferences", version.ref = "androidx-datastore" }
+androidx-datastore-preferences = { group = "androidx.datastore", name = "datastore-preferences", version.ref = "androidx-datastore" }
 androidx-navigation = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "androidx-navigation" }
 androidx-navigation-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "androidx-navigation" }
 androidx-navigation-safe-args = { group = "androidx.navigation", name = "navigation-safe-args-gradle-plugin", version.ref = "androidx-navigation-safe-args" }
@@ -202,7 +201,6 @@ android-gradle-plugin = { group = "com.android.tools.build", name = "gradle", ve
 kotlin-gradle-plugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
 androidx-room-gradle-plugin = { group = "androidx.room", name = "room-gradle-plugin", version.ref = "room-gradle-plugin" }
 ksp-gradle-plugin = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
-androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 
 [bundles]
 
@@ -296,7 +294,13 @@ firebase-crashlytics = { id = "com.google.firebase.crashlytics", version.ref="fi
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 
 # Custom Plugins (Build Logic)
-daongil-app = { id = "daongil.app", version.ref = "unspecified" }
-daongil-data = { id = "daongil.data", version.ref = "unspecified" }
-daongil-domain = { id = "daongil.domain", version.ref = "unspecified" }
-daongil-presentation = { id = "daongil.presentation", version.ref = "unspecified" }
+daongil-android-application = { id = "daongil.android.application", version.ref = "unspecified" }
+daongil-android-hilt = { id = "daongil.hilt.library", version.ref = "unspecified" }
+daongil-compose = { id = "daongil.android.compose", version.ref = "unspecified" }
+daongil-retrofit = { id = "daongil.android.retrofit", version.ref = "unspecified" }
+daongil-datastore = { id = "daongil.androidx.datastore", version.ref = "unspecified" }
+daongil-firebase = { id = "daongil.android.firebase", version.ref = "unspecified" }
+daongil-room = { id = "daongil.android.room", version.ref = "unspecified" }
+daongil-moshi = { id = "daongil.android.moshi", version.ref = "unspecified" }
+daongil-java-library = { id = "daongil.java.library", version.ref = "unspecified" }
+daongil-android-library = { id = "daongil.android.library", version.ref = "unspecified" }
