@@ -138,12 +138,3 @@ fun SplashScreen(
         )
     }
 }
-
-@Composable
-@Preview
-fun SplashScreenPreview() {
-    SplashScreen(
-        videoUri = Uri.parse("android.resource://${LocalContext.current.packageName}/${R.raw.splash_video}"),
-        snackBarHostState = remember { SnackbarHostState() }
-    )
-}
