@@ -35,6 +35,7 @@ fun SplashScreen(
     viewModel: SplashViewModel = hiltViewModel()
 ) {
     val context = LocalContext.current
+    val delayForSplash = 2_700L
     val videoPlayingStatus = remember { mutableStateOf(true) }
     val coroutineScope = rememberCoroutineScope()
     val snackBarHostState = remember { SnackbarHostState() }
