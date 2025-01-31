@@ -35,13 +35,13 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import kotlinx.coroutines.launch
 import kr.techit.lion.presentation.R
 import kr.techit.lion.presentation.compose.screen.concern.model.ConcernResource
-import kr.techit.lion.presentation.compose.screen.concern.vm.InterestViewModel
+import kr.techit.lion.presentation.compose.screen.concern.vm.ConcernViewModel
 import kr.techit.lion.presentation.delegate.NetworkEvent
 
 @Composable
 fun ConcernScreen(
     navigateToMain: () -> Unit,
-    viewModel: InterestViewModel = hiltViewModel()
+    viewModel: ConcernViewModel = hiltViewModel()
 ) {
     val selectedConcernType by viewModel.selectedType.collectAsStateWithLifecycle()
     val snackBarHostState = remember { SnackbarHostState() }
