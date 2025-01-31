@@ -1,19 +1,16 @@
 package kr.techit.lion.presentation.compose.navigation
 
-import android.content.Intent
 import android.net.Uri
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import kr.techit.lion.presentation.compose.screen.login.LoginScreen
 import kr.techit.lion.presentation.compose.navigation.route.IntroRoute
-import kr.techit.lion.presentation.compose.screen.IntroActivity
 import kr.techit.lion.presentation.compose.screen.concern.ConcernScreen
+import kr.techit.lion.presentation.compose.screen.login.LoginScreen
+import kr.techit.lion.presentation.compose.screen.onboarding.OnBoardingPage
 import kr.techit.lion.presentation.compose.screen.onboarding.OnboardingScreen
 import kr.techit.lion.presentation.compose.screen.splash.SplashScreen
-import kr.techit.lion.presentation.compose.screen.onboarding.OnBoardingPage
-import kr.techit.lion.presentation.main.MainActivity
 
 @Composable
 fun IntroNavHost(
@@ -35,8 +32,9 @@ fun IntroNavHost(
                     navigateToMain()
                 },
                 navigateToOnBoarding = {
-                    navController.navigate(IntroRoute.OnBoarding.route)
-                    navController.popBackStack()
+                    navController.navigate(IntroRoute.OnBoarding.route){
+                        popUpTo(IntroRoute.Splash.route){ inclusive = true }
+                    }
                 }
             )
         }
