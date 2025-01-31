@@ -44,7 +44,10 @@ fun SplashScreen(
         viewModel.networkEvent.collect { event ->
             when (event) {
                 NetworkEvent.Loading -> Unit
-                NetworkEvent.Success -> navigateToOnBoarding()
+                NetworkEvent.Success -> {
+                    videoPlayingStatus.value = false
+                    navigateToOnBoarding()
+                }
                 is NetworkEvent.Error -> {
                     coroutineScope.launch {
                         snackBarHostState.showSnackbar(
