@@ -74,10 +74,6 @@
             android:name=".myinfo.MyInfoActivity"
             android:exported="false" />
         <activity
-            android:name=".compose.screen.splash.SplashActivity"
-            android:exported="false">
-        </activity>
-        <activity
             android:name=".main.MainActivity"
             android:exported="true" >
             <intent-filter>
