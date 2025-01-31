@@ -35,6 +35,7 @@ fun SplashScreen(
     viewModel: SplashViewModel = hiltViewModel()
 ) {
     val context = LocalContext.current
+    val videoPlayingStatus = remember { mutableStateOf(true) }
     val coroutineScope = rememberCoroutineScope()
     val snackBarHostState = remember { SnackbarHostState() }
 
@@ -57,14 +58,14 @@ fun SplashScreen(
 
     LaunchedEffect(viewModel.connectivityStatus) {
         viewModel.userActivationState.combine(viewModel.connectivityStatus)
-        { activation, connectivityStatus ->
-            when (activation) {
-                Activation.Loading -> Unit
-                Activation.Activate -> {
-                    delay(2_700L)
+        { isActivated, connectivityStatus ->
+            when (isActivated) {
+                true -> {
+                    delay(delayForSplash)
+                    videoPlayingStatus.value = false
                     navigateToMain()
                 }
-                Activation.DeActivate -> {
+                false -> {
                     when (connectivityStatus) {
                         ConnectivityStatus.Loading -> Unit
                         ConnectivityStatus.Available -> viewModel.whenUserActivationIsDeActivate()
@@ -116,12 +117,21 @@ fun SplashScreen(
                         }
                         this.layoutParams = layoutParams
 
+    Box(modifier = Modifier
+        .background(Color(0xFFFBFAF6))
+        .fillMaxSize()
+    ) {
+        if (isPlaying) {
+            AndroidView(
+                factory = { context ->
+                    VideoView(context).apply {
+                        setVideoURI(videoUri)
                         this.start()
                     }
-                }
-            },
-            modifier = Modifier.fillMaxSize()
-        )
+                },
+                modifier = Modifier.fillMaxSize()
+            )
+        }
         SnackbarHost(
             hostState = snackBarHostState,
             modifier = Modifier.align(Alignment.BottomCenter)
