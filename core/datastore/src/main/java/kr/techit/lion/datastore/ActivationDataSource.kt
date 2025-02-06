@@ -6,6 +6,7 @@ import androidx.datastore.preferences.core.stringPreferencesKey
 import kotlinx.serialization.json.Json
 import kr.techit.lion.datastore.di.ActivationDataStore
 import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.core.booleanPreferencesKey
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
@@ -14,18 +15,16 @@ class ActivationDataSource @Inject constructor(
     @ActivationDataStore private val dataStore: DataStore<Preferences>
 ) {
     private companion object PreferencesKey {
-        private val KEY_ACTIVATION = stringPreferencesKey("user_activation")
+        private val KEY_ACTIVATION = booleanPreferencesKey("user_activation")
     }
 
-    val activation: Flow<Activation> = dataStore.data.map { preferences ->
-        val jsonString = preferences[KEY_ACTIVATION] ?: return@map Activation.DeActivate
-        Json.decodeFromString(Activation.serializer(), jsonString)
+    val activation: Flow<Boolean> = dataStore.data.map { preferences ->
+        preferences[KEY_ACTIVATION] == true
     }
 
-    suspend fun saveActivation(){
-        val jsonString = Json.encodeToString(Activation.serializer(), Activation.Activate)
+    suspend fun saveActivation() {
         dataStore.edit { preferences ->
-            preferences[KEY_ACTIVATION] = jsonString
+            preferences[KEY_ACTIVATION] = true
         }
     }
 }
