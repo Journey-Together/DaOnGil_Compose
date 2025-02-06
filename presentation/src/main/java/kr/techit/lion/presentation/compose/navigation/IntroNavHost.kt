@@ -47,7 +47,12 @@ fun IntroNavHost(
         }
         composable(route = IntroRoute.Login.route) {
             LoginScreen(
-                navigateToMain = { navigateToMain() }
+                navigateToMain = { navigateToMain() },
+                navigateToConcern = {
+                    navController.navigate(IntroRoute.Concern.route) {
+                        popUpTo(IntroRoute.Login.route){ inclusive = true }
+                    }
+                }
             )
         }
 
