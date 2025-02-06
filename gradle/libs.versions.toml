@@ -32,7 +32,7 @@ androidx-hilt-navigation-compose = "1.2.0"
 # Compose
 compose-bom = "2025.01.00"
 compose-navigation = "2.8.3"
-compose-material3 = "1.2.1"
+compose-material3 = "1.4.0-alpha07"
 compose-compiler = "1.5.10"
 compose-coil = "2.7.0"
 
@@ -96,6 +96,8 @@ circleindicator = "2.1.6"
 flexbox = "3.0.0"
 photoview = "1.0.2"
 unspecified = "1.0.0"
+constraintlayout = "2.2.0"
+lifecycleRuntimeKtx = "2.8.7"
 
 [libraries]
 # Androidx Core
@@ -201,6 +203,8 @@ android-gradle-plugin = { group = "com.android.tools.build", name = "gradle", ve
 kotlin-gradle-plugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
 androidx-room-gradle-plugin = { group = "androidx.room", name = "room-gradle-plugin", version.ref = "room-gradle-plugin" }
 ksp-gradle-plugin = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
+androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
 
 [bundles]
 
@@ -304,3 +308,4 @@ daongil-room = { id = "daongil.android.room", version.ref = "unspecified" }
 daongil-moshi = { id = "daongil.android.moshi", version.ref = "unspecified" }
 daongil-java-library = { id = "daongil.java.library", version.ref = "unspecified" }
 daongil-android-library = { id = "daongil.android.library", version.ref = "unspecified" }
+kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
