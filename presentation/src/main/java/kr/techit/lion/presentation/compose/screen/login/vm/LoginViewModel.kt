@@ -23,8 +23,8 @@ class LoginViewModel @Inject constructor(
 
     val networkEvent get() = networkEventDelegate.event
 
-    private val _state = MutableStateFlow(UserType.Checking)
-    val state get() = _state.asStateFlow()
+    private val _userType = MutableStateFlow(UserType.Checking)
+    val userType get() = _userType.asStateFlow()
 
     fun onCompleteLogIn(type: String, accessToken: String, refreshToken: String) {
         viewModelScope.launch(recordExceptionHandler) {
@@ -34,7 +34,9 @@ class LoginViewModel @Inject constructor(
     }
 
     private fun checkUserState() = execute(
-        action = { memberRepository.getConcernType() },
+        action = {
+            memberRepository.getConcernType()
+                 },
         eventHandler = networkEventDelegate,
         onSuccess = { type ->
             modifyUserState(type)
@@ -43,9 +45,9 @@ class LoginViewModel @Inject constructor(
 
     private fun modifyUserState(type: ConcernType) {
         if (type.hasAnyTrue()) {
-            _state.value = UserType.ExistingUser
+            _userType.value = UserType.ExistingUser
         } else {
-            _state.value = UserType.NewUser
+            _userType.value = UserType.NewUser
         }
     }
 }
