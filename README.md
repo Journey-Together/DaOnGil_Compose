@@ -29,4 +29,4 @@
 </table>
 
 ## 🧬 모듈 구조
-<img src="https://github.com/user-attachments/assets/b9df1585-febf-41ad-a56d-8cdc8fa037d7" width="50%" height="30%"/>
+<img src="https://github.com/user-attachments/assets/b9df1585-febf-41ad-a56d-8cdc8fa037d7" width="60%" height="40%"/>
