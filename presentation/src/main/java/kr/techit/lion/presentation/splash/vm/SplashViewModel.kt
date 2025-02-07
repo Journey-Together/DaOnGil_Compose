@@ -1,8 +1,15 @@
-package kr.techit.lion.presentation.compose.screen.splash.vm
+package kr.techit.lion.presentation.splash.vm
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.channels.Channel
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.receiveAsFlow
+import kotlinx.coroutines.launch
 import kr.techit.lion.domain.repository.ActivationRepository
 import kr.techit.lion.domain.usecase.areacode.InitAreaCodeInfoUseCase
 import kr.techit.lion.domain.usecase.base.onError
@@ -23,6 +30,13 @@ class SplashViewModel @Inject constructor(
     connectivityObserver: ConnectivityObserver
 ) : ViewModel() {
 
+    init {
+        initializedUserActivation()
+    }
+
+    private val _uiEvent = Channel<SplashUiEvent>()
+    val uiEvent: Flow<SplashUiEvent> = _uiEvent.receiveAsFlow()
+
     val networkEvent = networkEventDelegate.event
 
     val connectivityStatus = connectivityObserver.observe()
@@ -35,10 +49,39 @@ class SplashViewModel @Inject constructor(
         .activation
         .shareInUi(scope = viewModelScope)
 
+    fun initializedUserActivation() {
+        viewModelScope.launch {
+            combine(
+                userActivationState,
+                connectivityStatus
+            ) { isActivated, connectivityStatus ->
+                when (isActivated) {
+                    true -> {
+                        delay(2700L)
+                        _uiEvent.send(SplashUiEvent.NavigateToMain)
+                    }
+
+                    false -> {
+                        when (connectivityStatus) {
+                            ConnectivityStatus.Loading -> Unit
+                            ConnectivityStatus.Available -> whenUserActivationIsDeActivate()
+                            is ConnectivityStatus.OnLost -> {
+                                _uiEvent.send(SplashUiEvent.ShowSnackBar(connectivityStatus.msg))
+                            }
+                        }
+                    }
+                }
+            }.collect()
+        }
+    }
+
     suspend fun whenUserActivationIsDeActivate() {
         initAreaCodeInfoUseCase()
             .onSuccess {
                 networkEventDelegate.event(viewModelScope, NetworkEvent.Success)
+                viewModelScope.launch {
+                    _uiEvent.send(SplashUiEvent.NavigateToIntro)
+                }
             }
             .onError { exception ->
                 networkEventDelegate.submitThrowableEvent(viewModelScope, exception)
