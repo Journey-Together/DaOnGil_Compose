@@ -1,5 +1,6 @@
 package kr.techit.lion.presentation.splash.vm
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -24,7 +25,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SplashViewModel @Inject constructor(
-    activationRepository: ActivationRepository,
+    private val activationRepository: ActivationRepository,
     private val initAreaCodeInfoUseCase: InitAreaCodeInfoUseCase,
     private val networkEventDelegate: NetworkEventDelegate,
     connectivityObserver: ConnectivityObserver
@@ -45,33 +46,18 @@ class SplashViewModel @Inject constructor(
             initialValue = ConnectivityStatus.Loading
         )
 
-    val userActivationState = activationRepository
-        .activation
-        .shareInUi(scope = viewModelScope)
-
     fun initializedUserActivation() {
         viewModelScope.launch {
-            combine(
-                userActivationState,
-                connectivityStatus
-            ) { isActivated, connectivityStatus ->
-                when (isActivated) {
-                    true -> {
-                        delay(2700L)
-                        _uiEvent.send(SplashUiEvent.NavigateToMain)
-                    }
-
-                    false -> {
-                        when (connectivityStatus) {
-                            ConnectivityStatus.Loading -> Unit
-                            ConnectivityStatus.Available -> whenUserActivationIsDeActivate()
-                            is ConnectivityStatus.OnLost -> {
-                                _uiEvent.send(SplashUiEvent.ShowSnackBar(connectivityStatus.msg))
-                            }
-                        }
-                    }
+            val isActivated = activationRepository.checkUserActivation()
+            when(isActivated) {
+                true -> {
+                    delay(2500L)
+                    _uiEvent.send(SplashUiEvent.NavigateToMain)
                 }
-            }.collect()
+                false -> {
+                     whenUserActivationIsDeActivate()
+                }
+            }
         }
     }
 
