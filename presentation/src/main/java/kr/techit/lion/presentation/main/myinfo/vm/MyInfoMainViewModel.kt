@@ -11,7 +11,7 @@ import kotlinx.coroutines.launch
 import kr.techit.lion.domain.repository.AuthRepository
 import kr.techit.lion.domain.repository.MemberRepository
 import kr.techit.lion.presentation.base.BaseViewModel
-import kr.techit.lion.presentation.compose.screen.login.model.LogInStatus
+import kr.techit.lion.presentation.compose.screen.intro.login.vm.model.LogInStatus
 import kr.techit.lion.presentation.connectivity.connectivity.ConnectivityObserver
 import kr.techit.lion.presentation.connectivity.connectivity.ConnectivityStatus
 import kr.techit.lion.presentation.delegate.NetworkEventDelegate

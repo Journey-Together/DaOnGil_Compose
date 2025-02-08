@@ -17,7 +17,7 @@ import kr.techit.lion.domain.repository.PlaceRepository
 import kr.techit.lion.presentation.delegate.NetworkErrorDelegate
 import kr.techit.lion.domain.exception.onError
 import kr.techit.lion.domain.exception.onSuccess
-import kr.techit.lion.presentation.compose.screen.login.model.LogInStatus
+import kr.techit.lion.presentation.compose.screen.intro.login.vm.model.LogInStatus
 import kr.techit.lion.presentation.delegate.NetworkState
 import javax.inject.Inject
 

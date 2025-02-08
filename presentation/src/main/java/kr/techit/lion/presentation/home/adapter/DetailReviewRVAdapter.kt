@@ -11,8 +11,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import kr.techit.lion.domain.model.detailplace.Review
 import kr.techit.lion.presentation.R
-import kr.techit.lion.presentation.compose.navigation.route.IntroRoute
-import kr.techit.lion.presentation.compose.screen.IntroActivity
+import kr.techit.lion.presentation.compose.screen.intro.navigation.route.IntroRoute
+import kr.techit.lion.presentation.compose.screen.intro.IntroActivity
 import kr.techit.lion.presentation.databinding.ItemDetailReviewBigBinding
 import kr.techit.lion.presentation.main.dialog.ConfirmDialog
 import kr.techit.lion.presentation.report.ReportActivity

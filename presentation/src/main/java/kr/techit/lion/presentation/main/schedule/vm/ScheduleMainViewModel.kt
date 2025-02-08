@@ -17,7 +17,7 @@ import kr.techit.lion.domain.model.OpenPlan
 import kr.techit.lion.domain.model.OpenPlanInfo
 import kr.techit.lion.domain.repository.AuthRepository
 import kr.techit.lion.domain.repository.PlanRepository
-import kr.techit.lion.presentation.compose.screen.login.model.LogInStatus
+import kr.techit.lion.presentation.compose.screen.intro.login.vm.model.LogInStatus
 import kr.techit.lion.presentation.delegate.NetworkErrorDelegate
 import javax.inject.Inject
 

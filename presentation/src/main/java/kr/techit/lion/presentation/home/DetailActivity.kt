@@ -28,7 +28,7 @@ import kotlinx.coroutines.launch
 import kr.techit.lion.domain.model.detailplace.Review
 import kr.techit.lion.domain.model.detailplace.SubDisability
 import kr.techit.lion.presentation.R
-import kr.techit.lion.presentation.compose.screen.login.model.LogInStatus
+import kr.techit.lion.presentation.compose.screen.intro.login.vm.model.LogInStatus
 import kr.techit.lion.presentation.databinding.ActivityDetailBinding
 import kr.techit.lion.presentation.delegate.NetworkState
 import kr.techit.lion.presentation.emergency.EmergencyMapActivity

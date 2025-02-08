@@ -20,7 +20,7 @@ import kr.techit.lion.domain.usecase.plan.DeleteMyPlanReviewUseCase
 import kr.techit.lion.domain.usecase.plan.GetScheduleDetailGuestUseCase
 import kr.techit.lion.domain.usecase.plan.GetScheduleDetailUseCase
 import kr.techit.lion.domain.usecase.plan.UpdateMyPlanPublicUseCase
-import kr.techit.lion.presentation.compose.screen.login.model.LogInStatus
+import kr.techit.lion.presentation.compose.screen.intro.login.vm.model.LogInStatus
 import kr.techit.lion.presentation.delegate.NetworkErrorDelegate
 import kr.techit.lion.presentation.scheduleform.model.OriginalScheduleInfo
 import kr.techit.lion.presentation.scheduleform.model.toOriginalScheduleInfo

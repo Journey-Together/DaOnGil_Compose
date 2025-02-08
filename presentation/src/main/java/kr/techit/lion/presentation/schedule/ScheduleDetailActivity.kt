@@ -18,9 +18,9 @@ import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.launch
 import kr.techit.lion.domain.model.ScheduleDetail
 import kr.techit.lion.presentation.R
-import kr.techit.lion.presentation.compose.navigation.route.IntroRoute
-import kr.techit.lion.presentation.compose.screen.IntroActivity
-import kr.techit.lion.presentation.compose.screen.login.model.LogInStatus
+import kr.techit.lion.presentation.compose.screen.intro.navigation.route.IntroRoute
+import kr.techit.lion.presentation.compose.screen.intro.IntroActivity
+import kr.techit.lion.presentation.compose.screen.intro.login.vm.model.LogInStatus
 import kr.techit.lion.presentation.databinding.ActivityScheduleDetailBinding
 import kr.techit.lion.presentation.delegate.NetworkState
 import kr.techit.lion.presentation.ext.repeatOnStarted

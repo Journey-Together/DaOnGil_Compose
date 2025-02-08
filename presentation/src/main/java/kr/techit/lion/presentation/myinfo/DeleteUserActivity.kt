@@ -6,11 +6,10 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kr.techit.lion.presentation.R
-import kr.techit.lion.presentation.compose.navigation.route.IntroRoute
-import kr.techit.lion.presentation.compose.screen.IntroActivity
+import kr.techit.lion.presentation.compose.screen.intro.navigation.route.IntroRoute
+import kr.techit.lion.presentation.compose.screen.intro.IntroActivity
 import kr.techit.lion.presentation.databinding.ActivityDeleteUserBinding
 import kr.techit.lion.presentation.delegate.NetworkEvent
-import kr.techit.lion.presentation.delegate.NetworkState
 import kr.techit.lion.presentation.ext.repeatOnStarted
 import kr.techit.lion.presentation.ext.showInfinitySnackBar
 import kr.techit.lion.presentation.main.dialog.ConfirmDialog
