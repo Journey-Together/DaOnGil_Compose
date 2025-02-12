@@ -1,14 +1,11 @@
 package kr.techit.lion.presentation.splash.vm
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 import kr.techit.lion.domain.repository.ActivationRepository
@@ -19,7 +16,6 @@ import kr.techit.lion.presentation.connectivity.connectivity.ConnectivityObserve
 import kr.techit.lion.presentation.connectivity.connectivity.ConnectivityStatus
 import kr.techit.lion.presentation.delegate.NetworkEvent
 import kr.techit.lion.presentation.delegate.NetworkEventDelegate
-import kr.techit.lion.presentation.ext.shareInUi
 import kr.techit.lion.presentation.ext.stateInUi
 import javax.inject.Inject
 
