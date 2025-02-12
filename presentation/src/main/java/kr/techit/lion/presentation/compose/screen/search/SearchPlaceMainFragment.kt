@@ -11,7 +11,6 @@ import kr.techit.lion.presentation.main.search.vm.SearchViewModel
 
 @AndroidEntryPoint
 class SearchPlaceMainFragment : Fragment(R.layout.fragment_search_place_main) {
-    private val viewModel: SearchViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

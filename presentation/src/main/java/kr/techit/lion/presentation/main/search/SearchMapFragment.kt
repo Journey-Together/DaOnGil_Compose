@@ -41,7 +41,6 @@ import kr.techit.lion.presentation.ext.repeatOnViewStarted
 import kr.techit.lion.presentation.ext.setClickEvent
 import kr.techit.lion.presentation.ext.showPermissionSnackBar
 import kr.techit.lion.presentation.ext.showSnackbar
-import kr.techit.lion.presentation.main.bottomsheet.CategoryBottomSheet
 import kr.techit.lion.presentation.main.bottomsheet.PlaceBottomSheet
 import kr.techit.lion.presentation.main.search.vm.model.Category
 import kr.techit.lion.presentation.main.search.vm.model.DisabilityType
@@ -52,11 +51,9 @@ import kr.techit.lion.presentation.main.search.vm.model.Locate
 import kr.techit.lion.presentation.main.search.vm.model.PhysicalDisability
 import kr.techit.lion.presentation.main.search.vm.model.VisualImpairment
 import kr.techit.lion.presentation.main.search.vm.SearchMapViewModel
-import kr.techit.lion.presentation.main.search.vm.SharedViewModel
 
 @AndroidEntryPoint
 class SearchMapFragment : Fragment(R.layout.fragment_search_map), OnMapReadyCallback {
-    private val sharedViewModel: SharedViewModel by viewModels(ownerProducer = { requireParentFragment() })
     private val viewModel: SearchMapViewModel by activityViewModels()
     private lateinit var launcherForPermission: ActivityResultLauncher<Array<String>>
 
@@ -72,8 +69,6 @@ class SearchMapFragment : Fragment(R.layout.fragment_search_map), OnMapReadyCall
         val binding = FragmentSearchMapBinding.bind(view)
 
         initMap()
-        subscribeOptionStates(binding)
-
         repeatOnViewStarted {
             launch {
                 viewModel.searchState.collect {
@@ -86,28 +81,11 @@ class SearchMapFragment : Fragment(R.layout.fragment_search_map), OnMapReadyCall
                 }
             }
 
-            launch {
-                sharedViewModel.sharedOptionState.filter { value ->
-                    value.detailFilter.isNotEmpty()
-                }.collect {
-                    viewModel.onChangeMapState(it)
-                }
-            }
 
-            launch {
-                sharedViewModel.tabState.collect {
-                    clearMarker()
-                    viewModel.onSelectedTab(it)
-                }
-            }
 
             launch { collectNetworkState(binding) }
         }
 
-        binding.btnReset.setOnClickListener {
-            sharedViewModel.onClickResetIcon()
-            viewModel.onClickRestButton()
-        }
 
         val contracts = ActivityResultContracts.RequestMultiplePermissions()
         launcherForPermission = registerForActivityResult(contracts) { permissions ->
@@ -149,62 +127,6 @@ class SearchMapFragment : Fragment(R.layout.fragment_search_map), OnMapReadyCall
         }
     }
 
-    private fun subscribeOptionStates(binding: FragmentSearchMapBinding) {
-        with(binding) {
-            collectOptions(
-                sharedViewModel.physicalDisabilityOptions,
-                chipPhysicalDisability,
-                R.string.text_physical_disability,
-                PhysicalDisability
-            )
-            collectOptions(
-                sharedViewModel.hearingImpairmentOptions,
-                chipHearingImpairment,
-                R.string.text_hearing_impairment,
-                HearingImpairment
-            )
-            collectOptions(
-                sharedViewModel.visualImpairmentOptions,
-                chipVisualImpairment,
-                R.string.text_visual_impairment,
-                VisualImpairment
-            )
-            collectOptions(
-                sharedViewModel.infantFamilyOptions,
-                chipInfantFamilly,
-                R.string.text_infant_family,
-                InfantFamily
-            )
-            collectOptions(
-                sharedViewModel.elderlyPersonOptions,
-                chipElderlyPeople,
-                R.string.text_elderly_person,
-                ElderlyPeople
-            )
-        }
-    }
-
-    private fun collectOptions(
-        optionState: Flow<List<Int>>,
-        chip: Chip,
-        textResId: Int,
-        disabilityType: DisabilityType
-    ) {
-        repeatOnViewStarted {
-            optionState.collect { options ->
-                chip.setClickEvent(this) {
-                    showBottomSheet(options, disabilityType)
-                }
-
-                val text = if (options.isNotEmpty()) {
-                    "${getString(textResId)}(${options.size})"
-                } else {
-                    getString(textResId)
-                }
-                chip.text = text
-            }
-        }
-    }
 
     private fun initMap() {
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireContext())
@@ -429,12 +351,6 @@ class SearchMapFragment : Fragment(R.layout.fragment_search_map), OnMapReadyCall
         addMaker()
     }
 
-    private fun showBottomSheet(selectedOptions: List<Int>, disabilityType: DisabilityType) {
-        CategoryBottomSheet(selectedOptions, disabilityType) { optionIds, optionNames ->
-            sharedViewModel.onSelectOption(optionIds, disabilityType, optionNames)
-            viewModel.onSelectOption(optionNames, disabilityType)
-        }.show(parentFragmentManager, "bottomSheet")
-    }
 
     private fun clearMarker() {
         markers.map { m -> m.map = null }

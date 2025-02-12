@@ -9,12 +9,16 @@
 
     <application android:theme="@style/Base.Theme.DaOnGil">
         <activity
-            android:name=".compose.screen.IntroActivity"
-            android:exported="true">
+            android:name=".splash.SplashActivity"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".compose.screen.intro.IntroActivity"
+            android:exported="false">
         </activity>
         <activity
             android:name=".setting.PolicyActivity"

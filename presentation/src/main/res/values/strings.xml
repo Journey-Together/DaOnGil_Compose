@@ -4,7 +4,7 @@
     <string name="add_schedule"><u>일정 등록하러가기 ＞</u></string>
     <string name="tourist_spot">여행</string>
     <string name="restaurant">음식점</string>
-    <string name="lodgment">숙박</string>
+    <string name="lodging">숙박</string>
     <string name="watching_map">지도보기</string>
     <string name="watching_list">목록보기</string>
     <string name="text_close">닫기</string>
@@ -37,6 +37,7 @@
 
     <string name="text_area">지역선택</string>
     <string name="text_sigungu">시군구선택</string>
+    <string name="text_sigungu_placeholder">시/군/구</string>
     <string name="text_parking">주차장</string>
     <string name="text_public_transport">대중교통</string>
     <string name="text_route">접근로</string>
@@ -476,5 +477,7 @@
 
     <string name="http_error_server_title">서버에 오류가 발생했어요</string>
     <string name="http_error_server_message">잠시후 다시 시도해주세요.</string>
+    <string name="title_activity_search">SearchActivity</string>
+    <string name="text_detail_category">상세 카테고리</string>
 </resources>
 

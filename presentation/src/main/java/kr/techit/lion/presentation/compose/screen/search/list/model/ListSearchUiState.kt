@@ -6,7 +6,7 @@ import kr.techit.lion.domain.model.area.AreaCodeList
 import kr.techit.lion.domain.model.area.SigunguCodeList
 import kr.techit.lion.presentation.compose.screen.search.list.model.City.AreaModel
 import kr.techit.lion.presentation.compose.screen.search.list.model.City.SigunguModel
-import kr.techit.lion.presentation.compose.screen.search.list.model.ListSearchUIModel.PlaceModel
+import kr.techit.lion.presentation.compose.screen.search.list.model.PlaceModel
 import kr.techit.lion.presentation.compose.screen.search.model.CategoryStatus
 import java.util.TreeSet
 
@@ -17,6 +17,9 @@ data class ListSearchUiState(
     var options: ListOptionStatus,
     val isLastPage: Boolean
 ) {
+    val placeColumnSize: Int
+        get() = (place.size + 1) / 2
+
 
     fun updatePlaceModel(newPlaces: List<PlaceModel>): ListSearchUiState {
         return this.copy(place = place + newPlaces)

@@ -15,4 +15,6 @@
     </style>
 
     <style name="Theme.DaOnGil" parent="Base.Theme.DaOnGil" />
+
+    <style name="Theme.DaOnGil_CleanArchitecture" parent="android:Theme.Material.Light.NoActionBar" />
 </resources>
