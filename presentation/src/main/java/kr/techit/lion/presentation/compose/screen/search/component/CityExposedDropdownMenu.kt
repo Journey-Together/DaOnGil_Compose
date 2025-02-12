@@ -8,8 +8,11 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.tooling.preview.PreviewParameter
+import kr.techit.lion.presentation.compose.screen.search.list.model.City
 import kr.techit.lion.presentation.compose.screen.search.list.model.City.SigunguModel
 import kr.techit.lion.presentation.compose.screen.search.list.model.City.AreaModel
+import kr.techit.lion.presentation.compose.screen.search.list.preview.CityParameterProvider
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -51,13 +54,31 @@ fun CityExposedDropdownMenu(
 
 @Composable
 @Preview
-fun AreaExposedDropdownMenuPreview() {
-    CityExposedDropdownMenu(
-        area = AreaModel(names = listOf("서울", "경기", "인천")),
-        sigungu = SigunguModel(names = listOf("수원", "성남", "안양")),
-        areaPlaceHolder = "전국",
-        sigunguPlaceHolder = "시/군/구",
-        onSelectArea = {name -> },
-        onSelectSigungu = {name -> }
-    )
+fun AreaExposedDropdownMenuPreview(
+    @PreviewParameter(CityParameterProvider::class)
+    items: City
+) {
+    when (items) {
+        is AreaModel -> {
+            CityExposedDropdownMenu(
+                area = items,
+                sigungu = SigunguModel(names = emptyList()),
+                areaPlaceHolder = "전국",
+                sigunguPlaceHolder = "시/군/구",
+                onSelectArea = { name -> },
+                onSelectSigungu = { name -> }
+            )
+        }
+
+        is SigunguModel -> {
+            CityExposedDropdownMenu(
+                area = AreaModel(names = emptyList()),
+                sigungu = items,
+                areaPlaceHolder = "전국",
+                sigunguPlaceHolder = "시/군/구",
+                onSelectArea = { name -> },
+                onSelectSigungu = { name -> }
+            )
+        }
+    }
 }
