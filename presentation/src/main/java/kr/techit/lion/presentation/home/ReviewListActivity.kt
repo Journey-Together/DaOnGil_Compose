@@ -13,6 +13,7 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import kr.techit.lion.domain.model.placereviewlist.PlaceReview
 import kr.techit.lion.presentation.R
+import kr.techit.lion.presentation.compose.screen.intro.login.vm.model.LogInStatus
 import kr.techit.lion.presentation.databinding.ActivityReviewListBinding
 import kr.techit.lion.presentation.delegate.NetworkState
 import kr.techit.lion.presentation.ext.addOnScrollEndListener
@@ -24,7 +25,6 @@ import kr.techit.lion.presentation.home.adapter.ReviewListRVAdapter
 import kr.techit.lion.presentation.home.vm.ReviewListViewModel
 import kr.techit.lion.presentation.connectivity.ConnectivityObserver
 import kr.techit.lion.presentation.connectivity.NetworkConnectivityObserver
-import kr.techit.lion.presentation.splash.model.LogInStatus
 
 @AndroidEntryPoint
 class ReviewListActivity : AppCompatActivity() {

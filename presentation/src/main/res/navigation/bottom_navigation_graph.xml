@@ -21,7 +21,7 @@
     </fragment>
     <fragment
         android:id="@+id/searchPlaceMainFragment"
-        android:name="kr.techit.lion.presentation.main.search.SearchPlaceMainFragment"
+        android:name="kr.techit.lion.presentation.compose.screen.search.SearchPlaceMainFragment"
         android:label="fragment_search_place_main"
         tools:layout="@layout/fragment_search_place_main" />
     <fragment

@@ -20,15 +20,12 @@ import kr.techit.lion.presentation.ext.repeatOnViewStarted
 import kr.techit.lion.presentation.home.DetailActivity
 import kr.techit.lion.presentation.main.adapter.ListSearchAdapter
 import kr.techit.lion.presentation.main.adapter.ListSearchAdapter.Companion.VIEW_TYPE_PLACE
-import kr.techit.lion.presentation.main.bottomsheet.CategoryBottomSheet
 import kr.techit.lion.presentation.main.search.vm.model.AreaModel
 import kr.techit.lion.presentation.main.search.vm.model.DisabilityType
 import kr.techit.lion.presentation.main.search.vm.SearchListViewModel
-import kr.techit.lion.presentation.main.search.vm.SharedViewModel
 
 @AndroidEntryPoint
 class SearchListFragment : Fragment(R.layout.fragment_search_list) {
-    private val sharedViewModel: SharedViewModel by viewModels(ownerProducer = { requireParentFragment() })
     private val viewModel: SearchListViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -38,24 +35,14 @@ class SearchListFragment : Fragment(R.layout.fragment_search_list) {
         val mainAdapter = ListSearchAdapter(
             viewLifecycleOwner.lifecycleScope,
             onClickPhysicalDisability = { type ->
-                val options = sharedViewModel.physicalDisabilityOptions.value
-                showBottomSheet(options, type)
             },
             onClickVisualImpairment = { type ->
-                val options = sharedViewModel.visualImpairmentOptions.value
-                showBottomSheet(options, type)
             },
             onClickHearingDisability = { type ->
-                val options = sharedViewModel.hearingImpairmentOptions.value
-                showBottomSheet(options, type)
             },
             onClickInfantFamily = { type ->
-                val options = sharedViewModel.infantFamilyOptions.value
-                showBottomSheet(options, type)
             },
             onClickElderlyPeople = { type ->
-                val options = sharedViewModel.elderlyPersonOptions.value
-                showBottomSheet(options, type)
             },
             onSelectArea = {
                 repeatOnViewStarted {
@@ -102,18 +89,7 @@ class SearchListFragment : Fragment(R.layout.fragment_search_list) {
 
         with(binding) {
             repeatOnViewStarted {
-                launch {
-                    sharedViewModel.sharedOptionState.collect {
-                        viewModel.onChangeMapState(it)
-                    }
-                }
 
-                launch {
-                    sharedViewModel.tabState.collect {
-                        binding.rvSearchResult.scrollToPosition(0)
-                        viewModel.onSelectedTab(it)
-                    }
-                }
 
                 launch {
                     viewModel.networkEvent.collect { event ->
@@ -148,20 +124,8 @@ class SearchListFragment : Fragment(R.layout.fragment_search_list) {
                         }
                 }
 
-                launch {
-                    sharedViewModel.bottomSheetOptionState.collect {
-                        viewModel.modifyCategoryModel(it)
-                    }
-                }
             }
         }
-    }
-
-    private fun showBottomSheet(selectedOptions: List<Int>, disabilityType: DisabilityType) {
-        CategoryBottomSheet(selectedOptions, disabilityType) { optionIds, optionNames ->
-            sharedViewModel.onSelectOption(optionIds, disabilityType, optionNames)
-            viewModel.onSelectOption(optionNames, disabilityType)
-        }.show(parentFragmentManager, "bottomSheet")
     }
 
     fun mapChanged(state: Boolean) {

@@ -6,7 +6,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
 import kr.techit.lion.domain.exception.onError
 import kr.techit.lion.domain.exception.onSuccess
@@ -19,13 +22,9 @@ import kr.techit.lion.domain.repository.PlaceRepository
 import kr.techit.lion.domain.repository.SigunguCodeRepository
 import kr.techit.lion.presentation.delegate.NetworkErrorDelegate
 import kr.techit.lion.presentation.delegate.NetworkState
-import kr.techit.lion.presentation.ext.shareInUi
-import kr.techit.lion.presentation.ext.stateInUi
 import kr.techit.lion.presentation.main.home.HomeMainFragment.Companion.DEFAULT_AREA
 import kr.techit.lion.presentation.main.home.HomeMainFragment.Companion.DEFAULT_SIGUNGU
 import javax.inject.Inject
-import kotlin.coroutines.resume
-import kotlin.coroutines.suspendCoroutine
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
@@ -35,6 +34,10 @@ class HomeViewModel @Inject constructor(
     private val activationRepository: ActivationRepository,
     private val naverMapRepository: NaverMapRepository
 ) : ViewModel() {
+
+    init {
+        checkUserActivation()
+    }
 
     @Inject
     lateinit var networkErrorDelegate: NetworkErrorDelegate
@@ -46,9 +49,8 @@ class HomeViewModel @Inject constructor(
     private val _recommendPlaceInfo = MutableLiveData<List<RecommendPlace>>()
     val recommendPlaceInfo: LiveData<List<RecommendPlace>> = _recommendPlaceInfo
 
-    val userActivationState = activationRepository
-        .activation
-        .shareInUi(scope = viewModelScope)
+    private val _userActivationState = MutableSharedFlow<Boolean>(replay = 1)
+    val userActivationState: SharedFlow<Boolean> = _userActivationState.asSharedFlow()
 
     private val _area = MutableLiveData<String>()
     val area: LiveData<String> = _area
@@ -56,7 +58,14 @@ class HomeViewModel @Inject constructor(
     private val _locationMessage = MutableLiveData<String>()
     val locationMessage: LiveData<String> get() = _locationMessage
 
-    fun setActivation(){
+    fun checkUserActivation(){
+        viewModelScope.launch {
+            val activation = activationRepository.checkUserActivation()
+            _userActivationState.emit(activation)
+        }
+    }
+
+    fun setActivation() {
         viewModelScope.launch {
             activationRepository.saveUserActivation()
         }
@@ -64,13 +73,15 @@ class HomeViewModel @Inject constructor(
 
     fun getPlaceMain(area: String, sigungu: String) = viewModelScope.launch(Dispatchers.IO) {
 
-        var areaCode = getAreaCode(area)
-        var sigunguCode = areaCode?.let { getSigunguCode(sigungu, it) }
+        var areaCode = areaCodeRepository.getAreaCodeByName(area)
+        var sigunguCode = areaCode?.let {
+            sigunguCodeRepository.getSigunguCodeByVillageName(sigungu, it)
+        }
 
         if (areaCode == null || sigunguCode == null) {
             _locationMessage.postValue("위치를 찾을 수 없어 기본값($DEFAULT_AREA, $DEFAULT_SIGUNGU)으로 설정합니다.")
-            areaCode = getAreaCode(DEFAULT_AREA)
-            sigunguCode = areaCode?.let { getSigunguCode(DEFAULT_SIGUNGU, it) }
+            areaCode = areaCodeRepository.getAreaCodeByName(DEFAULT_AREA)
+            sigunguCode = areaCode?.let { sigunguCodeRepository.getSigunguCodeByVillageName(DEFAULT_SIGUNGU, it) }
         }
 
         if (areaCode != null && sigunguCode != null) {
@@ -85,19 +96,12 @@ class HomeViewModel @Inject constructor(
         }
     }
 
-    private suspend fun getAreaCode(area: String) = suspendCoroutine { continutation ->
-        continutation.resume(areaCodeRepository.getAreaCodeByName(area))
+    private fun getAreaCode(area: String) {
+        viewModelScope.launch {
+            areaCodeRepository.getAreaCodeByName(area)
+        }
     }
 
-    private suspend fun getSigunguCode(sigungu: String, areaCode: String) =
-        suspendCoroutine { continutation ->
-            continutation.resume(
-                sigunguCodeRepository.getSigunguCodeByVillageName(
-                    sigungu,
-                    areaCode
-                )
-            )
-        }
 
     fun getUserLocationRegion(coords: String) = viewModelScope.launch {
         naverMapRepository.getReverseGeoCode(coords).onSuccess {

@@ -28,6 +28,7 @@ import kotlinx.coroutines.launch
 import kr.techit.lion.domain.model.detailplace.Review
 import kr.techit.lion.domain.model.detailplace.SubDisability
 import kr.techit.lion.presentation.R
+import kr.techit.lion.presentation.compose.screen.intro.login.vm.model.LogInStatus
 import kr.techit.lion.presentation.databinding.ActivityDetailBinding
 import kr.techit.lion.presentation.delegate.NetworkState
 import kr.techit.lion.presentation.emergency.EmergencyMapActivity
@@ -42,7 +43,6 @@ import kr.techit.lion.presentation.home.vm.DetailViewModel
 import kr.techit.lion.presentation.myreview.MyReviewActivity
 import kr.techit.lion.presentation.connectivity.ConnectivityObserver
 import kr.techit.lion.presentation.connectivity.NetworkConnectivityObserver
-import kr.techit.lion.presentation.splash.model.LogInStatus
 
 @AndroidEntryPoint
 class DetailActivity : AppCompatActivity(), OnMapReadyCallback {

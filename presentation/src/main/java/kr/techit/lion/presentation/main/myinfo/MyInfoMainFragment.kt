@@ -15,16 +15,17 @@ import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.launch
 import kr.techit.lion.presentation.R
 import kr.techit.lion.presentation.bookmark.BookmarkActivity
+import kr.techit.lion.presentation.compose.screen.intro.navigation.route.IntroRoute
+import kr.techit.lion.presentation.compose.screen.intro.IntroActivity
+import kr.techit.lion.presentation.compose.screen.intro.login.vm.model.LogInStatus
 import kr.techit.lion.presentation.concerntype.ConcernTypeActivity
 import kr.techit.lion.presentation.connectivity.connectivity.ConnectivityStatus
 import kr.techit.lion.presentation.databinding.FragmentMyInfoMainBinding
 import kr.techit.lion.presentation.delegate.NetworkEvent
-import kr.techit.lion.presentation.delegate.NetworkState
 import kr.techit.lion.presentation.ext.announceForAccessibility
 import kr.techit.lion.presentation.ext.isTallBackEnabled
 import kr.techit.lion.presentation.ext.repeatOnViewStarted
 import kr.techit.lion.presentation.ext.setAccessibilityText
-import kr.techit.lion.presentation.login.LoginActivity
 import kr.techit.lion.presentation.main.dialog.ConfirmDialog
 import kr.techit.lion.presentation.main.myinfo.vm.MyInfoMainViewModel
 import kr.techit.lion.presentation.main.myinfo.vm.model.MyInfoUiModel
@@ -32,7 +33,6 @@ import kr.techit.lion.presentation.myinfo.DeleteUserActivity
 import kr.techit.lion.presentation.myinfo.MyInfoActivity
 import kr.techit.lion.presentation.myreview.MyReviewActivity
 import kr.techit.lion.presentation.setting.PolicyActivity
-import kr.techit.lion.presentation.splash.model.LogInStatus
 
 @AndroidEntryPoint
 class MyInfoMainFragment : Fragment(R.layout.fragment_my_info_main) {
@@ -228,8 +228,7 @@ class MyInfoMainFragment : Fragment(R.layout.fragment_my_info_main) {
             tvNameOrLogin.text = getString(R.string.text_myInfo_Review)
             tvNameOrLogin.contentDescription = requireContext().getString(R.string.text_login_button)
             layoutProfile.setOnClickListener {
-                val intent = Intent(requireActivity(), LoginActivity::class.java)
-                startActivity(intent)
+                navigateToLogin()
             }
         }
 
@@ -297,12 +296,16 @@ class MyInfoMainFragment : Fragment(R.layout.fragment_my_info_main) {
 
     private fun logout() {
         viewModel.logout {
-            val intent = Intent(requireActivity(), LoginActivity::class.java).apply {
-                setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-            }
-            startActivity(intent)
-            requireActivity().finish()
+            navigateToLogin()
         }
+    }
+
+    private fun navigateToLogin(){
+        val intent = Intent(context, IntroActivity::class.java).apply {
+            putExtra("destination", IntroRoute.Login.route)
+        }
+        startActivity(intent)
+        requireActivity().finish()
     }
 
     companion object {

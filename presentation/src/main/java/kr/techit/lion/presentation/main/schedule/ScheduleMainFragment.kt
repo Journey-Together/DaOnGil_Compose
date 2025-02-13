@@ -14,12 +14,14 @@ import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.launch
 import kr.techit.lion.domain.model.MyMainSchedule
 import kr.techit.lion.presentation.R
+import kr.techit.lion.presentation.compose.screen.intro.navigation.route.IntroRoute
+import kr.techit.lion.presentation.compose.screen.intro.IntroActivity
+import kr.techit.lion.presentation.compose.screen.intro.login.vm.model.LogInStatus
 import kr.techit.lion.presentation.scheduleform.ScheduleFormActivity
 import kr.techit.lion.presentation.databinding.FragmentScheduleMainBinding
 import kr.techit.lion.presentation.delegate.NetworkState
 import kr.techit.lion.presentation.ext.repeatOnViewStarted
 import kr.techit.lion.presentation.ext.showSnackbar
-import kr.techit.lion.presentation.login.LoginActivity
 import kr.techit.lion.presentation.main.adapter.ScheduleMyAdapter
 import kr.techit.lion.presentation.main.adapter.SchedulePublicAdapter
 import kr.techit.lion.presentation.main.dialog.ConfirmDialog
@@ -31,7 +33,6 @@ import kr.techit.lion.presentation.schedule.PublicScheduleActivity
 import kr.techit.lion.presentation.schedule.ResultCode
 import kr.techit.lion.presentation.schedulereview.WriteScheduleReviewActivity
 import kr.techit.lion.presentation.schedule.ScheduleDetailActivity
-import kr.techit.lion.presentation.splash.model.LogInStatus
 
 @AndroidEntryPoint
 class ScheduleMainFragment : Fragment(R.layout.fragment_schedule_main) {
@@ -112,8 +113,6 @@ class ScheduleMainFragment : Fragment(R.layout.fragment_schedule_main) {
 
                 when (loginState) {
                     LogInStatus.Checking -> return@collect
-
-
                     LogInStatus.LoggedIn -> {
                         isUser = true
                         viewModel.getScheduleMainLists()
@@ -253,9 +252,11 @@ class ScheduleMainFragment : Fragment(R.layout.fragment_schedule_main) {
             "여행 일정을 추가/관리하고 싶다면\n로그인을 진행해주세요",
             "로그인하기",
         ) {
-            val intent = Intent(requireActivity(), LoginActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            val intent = Intent(context, IntroActivity::class.java).apply {
+                putExtra("destination", IntroRoute.Login.route)
+            }
             startActivity(intent)
+            requireActivity().finish()
         }
         dialog.isCancelable = true
         dialog.show(activity?.supportFragmentManager!!, "ScheduleLoginDialog")

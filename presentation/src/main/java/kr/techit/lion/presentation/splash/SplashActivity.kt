@@ -7,15 +7,17 @@ import android.util.DisplayMetrics
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.delay
 import kr.techit.lion.presentation.R
 import kr.techit.lion.presentation.databinding.ActivitySplashBinding
-import kr.techit.lion.presentation.delegate.NetworkEvent
-import kr.techit.lion.presentation.ext.repeatOnStarted
-import kr.techit.lion.presentation.ext.showInfinitySnackBar
-import kr.techit.lion.presentation.login.OnBoardingActivity
-import kr.techit.lion.presentation.main.MainActivity
 import kr.techit.lion.presentation.splash.vm.SplashViewModel
+import androidx.core.net.toUri
+import kotlinx.coroutines.delay
+import kr.techit.lion.presentation.compose.screen.intro.IntroActivity
+import kr.techit.lion.presentation.ext.repeatOnStarted
+import kr.techit.lion.presentation.main.MainActivity
+import kr.techit.lion.presentation.delegate.NetworkEvent
+import kr.techit.lion.presentation.ext.showInfinitySnackBar
+import kr.techit.lion.presentation.splash.vm.SplashUiEvent
 
 @AndroidEntryPoint
 class SplashActivity : AppCompatActivity() {
@@ -32,7 +34,7 @@ class SplashActivity : AppCompatActivity() {
         val videoPath = "android.resource://" + packageName + "/" + R.raw.splash_video
         with(binding.splashVideoView) {
 
-            setVideoURI(Uri.parse(videoPath))
+            setVideoURI(videoPath.toUri())
 
             setOnPreparedListener { mp ->
                 val videoWidth = mp.videoWidth.toFloat()
@@ -61,26 +63,11 @@ class SplashActivity : AppCompatActivity() {
             }
 
             repeatOnStarted {
-                viewModel.userActivationState.collect { isActivated ->
-                    when (isActivated) {
-                        true -> {
-                            delay(DELAY_FOR_DISPLAY_SPLASH_ANIMATION)
-                            startActivity(Intent(this@SplashActivity, MainActivity::class.java))
-                            finish()
-                        }
-                        false -> {
-                            viewModel.whenUserActivationIsDeActivate()
-                        }
-                    }
-                }
-            }
-
-            repeatOnStarted {
                 viewModel.networkEvent.collect { event ->
                     when (event) {
                         NetworkEvent.Loading -> Unit
                         NetworkEvent.Success -> {
-                            startActivity(Intent(this@SplashActivity, OnBoardingActivity::class.java))
+                            startActivity(Intent(this@SplashActivity, IntroActivity::class.java))
                             finish()
                         }
                         is NetworkEvent.Error -> {
@@ -89,9 +76,24 @@ class SplashActivity : AppCompatActivity() {
                     }
                 }
             }
+
+            repeatOnStarted {
+                viewModel.uiEvent.collect { event ->
+                    when (event) {
+                        SplashUiEvent.NavigateToMain -> {
+                            startActivity(Intent(this@SplashActivity, MainActivity::class.java))
+                            finish()
+                        }
+                        SplashUiEvent.NavigateToIntro -> {
+                            startActivity(Intent(this@SplashActivity, IntroActivity::class.java))
+                            finish()
+                        }
+                        is SplashUiEvent.ShowSnackBar -> {
+                            showInfinitySnackBar(binding.root, getString(event.message))
+                        }
+                    }
+                }
+            }
         }
-    }
-    companion object{
-        private const val DELAY_FOR_DISPLAY_SPLASH_ANIMATION = 2700L
     }
 }

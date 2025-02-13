@@ -1,5 +1,4 @@
 plugins {
-    alias(libs.plugins.daongil.android.library)
     alias(libs.plugins.daongil.compose)
     alias(libs.plugins.daongil.android.hilt)
     alias(libs.plugins.navigation.safe.args)
@@ -26,11 +25,11 @@ dependencies{
     implementation(libs.kakao.user)
 
     implementation(libs.glide)
-    ksp(libs.glide.compiler)
 
     implementation(libs.photoview)
     implementation(libs.flexbox)
     implementation(libs.circleindicator)
     implementation(libs.simple.rating.bar)
     implementation(libs.droidsonroids)
+    implementation(libs.androidx.constraintlayout)
 }
